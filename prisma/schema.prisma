@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("admins")
+}
+
+model bookings {
+  booking_id Int          @id @default(autoincrement())
+  user_id    Int
+  service_id Int?
+  branch_id  Int?
+  date       DateTime     @db.Date
+  time       DateTime     @db.Time(6)
+  status     String
+  source     String?
+  carmodel   String?
+  created_at DateTime?    @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  updated_at DateTime?    @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  branches   branches?    @relation(fields: [branch_id], references: [id], map: "fk_booking_branch")
+  services   services?    @relation(fields: [service_id], references: [id], map: "fk_booking_service")
+  users      users        @relation(fields: [user_id], references: [user_id], onDelete: Cascade, map: "fk_booking_user")
+  email_logs email_logs[]
+
+  @@index([branch_id], map: "idx_booking_branch")
+  @@index([date], map: "idx_booking_date")
+  @@index([service_id], map: "idx_booking_service")
+  @@index([user_id], map: "idx_booking_user")
+}
+
+model branches {
+  id         Int        @id @default(autoincrement())
+  name       String
+  address    String?
+  created_at DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  updated_at DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  bookings   bookings[]
+}
+
+model carzspas_pages {
+  id               Int       @id @default(autoincrement())
+  page_name        String
+  page_description String
+  page_url         String    @unique
+  category         String?
+  created_at       DateTime? @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  updated_at       DateTime? @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+}
+
+model ceramic_campaign_leads {
+  id             BigInt    @id(map: "leads_pkey") @default(autoincrement())
+  campaign_name  String    @db.VarChar(100)
+  name           String    @db.VarChar(100)
+  phone_number   String    @db.VarChar(15)
+  car_type       String?   @db.VarChar(50)
+  car_brand      String?   @db.VarChar(100)
+  car_model      String?   @db.VarChar(100)
+  car_year       Int?
+  preferred_date DateTime? @db.Date
+  preferred_time DateTime? @db.Time(6)
+  user_intent    String?   @db.VarChar(50)
+  lead_status    String?   @db.VarChar(50)
+  notes          String?
+  created_at     DateTime? @default(dbgenerated("timezone('Asia/Kolkata'::text, now())")) @db.Timestamptz(6)
+  updated_at     DateTime? @default(dbgenerated("timezone('Asia/Kolkata'::text, now())")) @db.Timestamptz(6)
+}
+
+model email_logs {
+  id            Int       @id @default(autoincrement())
+  booking_id    Int
+  user_id       Int
+  email_sent_to String
+  status        String
+  booking_type  String
+  created_at    DateTime? @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  updated_at    DateTime? @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  bookings      bookings  @relation(fields: [booking_id], references: [booking_id], onDelete: Cascade, map: "fk_email_booking")
+}
+
+model email_templates {
+  id             Int       @id @default(autoincrement())
+  status         String
+  email_template String
+  created_at     DateTime? @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  updated_at     DateTime? @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+}
+
+model services {
+  id          Int        @id @default(autoincrement())
+  name        String
+  url         String?
+  created_at  DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  updated_at  DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  images      String[]
+  description String?
+  bookings    bookings[]
+}
+
+model users {
+  user_id            Int        @id @default(autoincrement())
+  name               String
+  email              String
+  phone              String
+  fromwhatsappnumber Decimal?   @db.Decimal
+  created_at         DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  updated_at         DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  bookings           bookings[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model whatsapp_messages {
+  id               BigInt    @id @default(autoincrement())
+  whatsappnumber   String    @db.VarChar(20)
+  message          String
+  sender_type      String    @db.VarChar(10)
+  message_type     String?   @default("text") @db.VarChar(20)
+  created_at       DateTime? @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  name             String?
+  message_category String    @default("chat") @db.VarChar(20)
+
+  @@index([whatsappnumber], map: "idx_whatsapp_messages_fromnumber")
+}

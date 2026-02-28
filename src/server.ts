@@ -3,7 +3,13 @@ import "dotenv/config";
 import cors from "cors";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
-
+import cookieParser from "cookie-parser";
+import authRoutes from "./routes/auth.routes.js";
+import bookingRoutes from "./routes/booking.routes.js";
+import campaignLeadRouter from "./routes/campaignLead.routes.js";
+import userRoutes from "./routes/user.routes.js";
+import whatsappRoutes from "./routes/whatsapp.routes.js";
+import { errorHandler } from "./middlewares/error.middleware.js";
 const app = express();
 
 const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(",") || [];
@@ -46,6 +52,21 @@ app.use(
 );
 
 app.use(express.json());
+app.use(cookieParser());
+/* =========================
+   🚀 Routes
+========================= */
+
+app.use("/api/auth", authRoutes);
+app.use("/api/bookings", bookingRoutes);
+app.use("/api/campaign-leads", campaignLeadRouter);
+app.use("/api/users", userRoutes);
+app.use("/api/whatsapp", whatsappRoutes); // New WhatsApp routes
+
+/* =========================
+   🛠️ Error Handling
+========================= */
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
