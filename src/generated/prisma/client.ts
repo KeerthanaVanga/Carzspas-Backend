@@ -62,11 +62,6 @@ export type branches = Prisma.branchesModel
  */
 export type carzspas_pages = Prisma.carzspas_pagesModel
 /**
- * Model ceramic_campaign_leads
- * 
- */
-export type ceramic_campaign_leads = Prisma.ceramic_campaign_leadsModel
-/**
  * Model email_logs
  * 
  */
@@ -91,3 +86,8 @@ export type users = Prisma.usersModel
  * This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
  */
 export type whatsapp_messages = Prisma.whatsapp_messagesModel
+/**
+ * Model campaign_leads
+ * 
+ */
+export type campaign_leads = Prisma.campaign_leadsModel

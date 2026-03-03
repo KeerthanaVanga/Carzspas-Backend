@@ -60,7 +60,7 @@ export const getCampaignLeadsService = async ({
   }
 
   const [leads, total] = await Promise.all([
-    prisma.ceramic_campaign_leads.findMany({
+    prisma.campaign_leads.findMany({
       where,
       skip,
       take: limit,
@@ -68,7 +68,7 @@ export const getCampaignLeadsService = async ({
         created_at: "desc",
       },
     }),
-    prisma.ceramic_campaign_leads.count({ where }),
+    prisma.campaign_leads.count({ where }),
   ]);
 
   return {
@@ -77,4 +77,25 @@ export const getCampaignLeadsService = async ({
     page,
     totalPages: Math.ceil(total / limit),
   };
+};
+
+const allowedStatuses = ["Cold", "Warm", "Hot", "Contacted", "Closed"];
+
+export const updateLeadStatusService = async (
+  id: number,
+  lead_status: string,
+) => {
+  if (!allowedStatuses.includes(lead_status)) {
+    throw new Error("Invalid lead status");
+  }
+
+  const lead = await prisma.campaign_leads.update({
+    where: { id },
+    data: {
+      lead_status,
+      updated_at: new Date(),
+    },
+  });
+
+  return lead;
 };

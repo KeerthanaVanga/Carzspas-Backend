@@ -388,12 +388,12 @@ export const ModelName = {
   bookings: 'bookings',
   branches: 'branches',
   carzspas_pages: 'carzspas_pages',
-  ceramic_campaign_leads: 'ceramic_campaign_leads',
   email_logs: 'email_logs',
   email_templates: 'email_templates',
   services: 'services',
   users: 'users',
-  whatsapp_messages: 'whatsapp_messages'
+  whatsapp_messages: 'whatsapp_messages',
+  campaign_leads: 'campaign_leads'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -409,7 +409,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "admin" | "bookings" | "branches" | "carzspas_pages" | "ceramic_campaign_leads" | "email_logs" | "email_templates" | "services" | "users" | "whatsapp_messages"
+    modelProps: "admin" | "bookings" | "branches" | "carzspas_pages" | "email_logs" | "email_templates" | "services" | "users" | "whatsapp_messages" | "campaign_leads"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -706,80 +706,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.carzspas_pagesCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.Carzspas_pagesCountAggregateOutputType> | number
-        }
-      }
-    }
-    ceramic_campaign_leads: {
-      payload: Prisma.$ceramic_campaign_leadsPayload<ExtArgs>
-      fields: Prisma.ceramic_campaign_leadsFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.ceramic_campaign_leadsFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ceramic_campaign_leadsPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.ceramic_campaign_leadsFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ceramic_campaign_leadsPayload>
-        }
-        findFirst: {
-          args: Prisma.ceramic_campaign_leadsFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ceramic_campaign_leadsPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.ceramic_campaign_leadsFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ceramic_campaign_leadsPayload>
-        }
-        findMany: {
-          args: Prisma.ceramic_campaign_leadsFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ceramic_campaign_leadsPayload>[]
-        }
-        create: {
-          args: Prisma.ceramic_campaign_leadsCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ceramic_campaign_leadsPayload>
-        }
-        createMany: {
-          args: Prisma.ceramic_campaign_leadsCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.ceramic_campaign_leadsCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ceramic_campaign_leadsPayload>[]
-        }
-        delete: {
-          args: Prisma.ceramic_campaign_leadsDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ceramic_campaign_leadsPayload>
-        }
-        update: {
-          args: Prisma.ceramic_campaign_leadsUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ceramic_campaign_leadsPayload>
-        }
-        deleteMany: {
-          args: Prisma.ceramic_campaign_leadsDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.ceramic_campaign_leadsUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.ceramic_campaign_leadsUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ceramic_campaign_leadsPayload>[]
-        }
-        upsert: {
-          args: Prisma.ceramic_campaign_leadsUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ceramic_campaign_leadsPayload>
-        }
-        aggregate: {
-          args: Prisma.Ceramic_campaign_leadsAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateCeramic_campaign_leads>
-        }
-        groupBy: {
-          args: Prisma.ceramic_campaign_leadsGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Ceramic_campaign_leadsGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.ceramic_campaign_leadsCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Ceramic_campaign_leadsCountAggregateOutputType> | number
         }
       }
     }
@@ -1153,6 +1079,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    campaign_leads: {
+      payload: Prisma.$campaign_leadsPayload<ExtArgs>
+      fields: Prisma.campaign_leadsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.campaign_leadsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_leadsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.campaign_leadsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_leadsPayload>
+        }
+        findFirst: {
+          args: Prisma.campaign_leadsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_leadsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.campaign_leadsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_leadsPayload>
+        }
+        findMany: {
+          args: Prisma.campaign_leadsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_leadsPayload>[]
+        }
+        create: {
+          args: Prisma.campaign_leadsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_leadsPayload>
+        }
+        createMany: {
+          args: Prisma.campaign_leadsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.campaign_leadsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_leadsPayload>[]
+        }
+        delete: {
+          args: Prisma.campaign_leadsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_leadsPayload>
+        }
+        update: {
+          args: Prisma.campaign_leadsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_leadsPayload>
+        }
+        deleteMany: {
+          args: Prisma.campaign_leadsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.campaign_leadsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.campaign_leadsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_leadsPayload>[]
+        }
+        upsert: {
+          args: Prisma.campaign_leadsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_leadsPayload>
+        }
+        aggregate: {
+          args: Prisma.Campaign_leadsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCampaign_leads>
+        }
+        groupBy: {
+          args: Prisma.campaign_leadsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Campaign_leadsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.campaign_leadsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Campaign_leadsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1245,27 +1245,6 @@ export const Carzspas_pagesScalarFieldEnum = {
 export type Carzspas_pagesScalarFieldEnum = (typeof Carzspas_pagesScalarFieldEnum)[keyof typeof Carzspas_pagesScalarFieldEnum]
 
 
-export const Ceramic_campaign_leadsScalarFieldEnum = {
-  id: 'id',
-  campaign_name: 'campaign_name',
-  name: 'name',
-  phone_number: 'phone_number',
-  car_type: 'car_type',
-  car_brand: 'car_brand',
-  car_model: 'car_model',
-  car_year: 'car_year',
-  preferred_date: 'preferred_date',
-  preferred_time: 'preferred_time',
-  user_intent: 'user_intent',
-  lead_status: 'lead_status',
-  notes: 'notes',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type Ceramic_campaign_leadsScalarFieldEnum = (typeof Ceramic_campaign_leadsScalarFieldEnum)[keyof typeof Ceramic_campaign_leadsScalarFieldEnum]
-
-
 export const Email_logsScalarFieldEnum = {
   id: 'id',
   booking_id: 'booking_id',
@@ -1329,6 +1308,27 @@ export const Whatsapp_messagesScalarFieldEnum = {
 } as const
 
 export type Whatsapp_messagesScalarFieldEnum = (typeof Whatsapp_messagesScalarFieldEnum)[keyof typeof Whatsapp_messagesScalarFieldEnum]
+
+
+export const Campaign_leadsScalarFieldEnum = {
+  id: 'id',
+  campaign_name: 'campaign_name',
+  name: 'name',
+  phone_number: 'phone_number',
+  car_type: 'car_type',
+  car_brand: 'car_brand',
+  car_model: 'car_model',
+  car_year: 'car_year',
+  preferred_date: 'preferred_date',
+  preferred_time: 'preferred_time',
+  user_intent: 'user_intent',
+  lead_status: 'lead_status',
+  notes: 'notes',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Campaign_leadsScalarFieldEnum = (typeof Campaign_leadsScalarFieldEnum)[keyof typeof Campaign_leadsScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1404,20 +1404,6 @@ export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel,
 
 
 /**
- * Reference to a field of type 'BigInt'
- */
-export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
-    
-
-
-/**
- * Reference to a field of type 'BigInt[]'
- */
-export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
-    
-
-
-/**
  * Reference to a field of type 'Decimal'
  */
 export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
@@ -1428,6 +1414,20 @@ export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel,
  * Reference to a field of type 'Decimal[]'
  */
 export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BigInt'
+ */
+export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+    
+
+
+/**
+ * Reference to a field of type 'BigInt[]'
+ */
+export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
     
 
 
@@ -1543,12 +1543,12 @@ export type GlobalOmitConfig = {
   bookings?: Prisma.bookingsOmit
   branches?: Prisma.branchesOmit
   carzspas_pages?: Prisma.carzspas_pagesOmit
-  ceramic_campaign_leads?: Prisma.ceramic_campaign_leadsOmit
   email_logs?: Prisma.email_logsOmit
   email_templates?: Prisma.email_templatesOmit
   services?: Prisma.servicesOmit
   users?: Prisma.usersOmit
   whatsapp_messages?: Prisma.whatsapp_messagesOmit
+  campaign_leads?: Prisma.campaign_leadsOmit
 }
 
 /* Types for Logging */

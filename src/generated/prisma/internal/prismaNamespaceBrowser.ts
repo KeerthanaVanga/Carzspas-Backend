@@ -55,12 +55,12 @@ export const ModelName = {
   bookings: 'bookings',
   branches: 'branches',
   carzspas_pages: 'carzspas_pages',
-  ceramic_campaign_leads: 'ceramic_campaign_leads',
   email_logs: 'email_logs',
   email_templates: 'email_templates',
   services: 'services',
   users: 'users',
-  whatsapp_messages: 'whatsapp_messages'
+  whatsapp_messages: 'whatsapp_messages',
+  campaign_leads: 'campaign_leads'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -132,27 +132,6 @@ export const Carzspas_pagesScalarFieldEnum = {
 export type Carzspas_pagesScalarFieldEnum = (typeof Carzspas_pagesScalarFieldEnum)[keyof typeof Carzspas_pagesScalarFieldEnum]
 
 
-export const Ceramic_campaign_leadsScalarFieldEnum = {
-  id: 'id',
-  campaign_name: 'campaign_name',
-  name: 'name',
-  phone_number: 'phone_number',
-  car_type: 'car_type',
-  car_brand: 'car_brand',
-  car_model: 'car_model',
-  car_year: 'car_year',
-  preferred_date: 'preferred_date',
-  preferred_time: 'preferred_time',
-  user_intent: 'user_intent',
-  lead_status: 'lead_status',
-  notes: 'notes',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type Ceramic_campaign_leadsScalarFieldEnum = (typeof Ceramic_campaign_leadsScalarFieldEnum)[keyof typeof Ceramic_campaign_leadsScalarFieldEnum]
-
-
 export const Email_logsScalarFieldEnum = {
   id: 'id',
   booking_id: 'booking_id',
@@ -216,6 +195,27 @@ export const Whatsapp_messagesScalarFieldEnum = {
 } as const
 
 export type Whatsapp_messagesScalarFieldEnum = (typeof Whatsapp_messagesScalarFieldEnum)[keyof typeof Whatsapp_messagesScalarFieldEnum]
+
+
+export const Campaign_leadsScalarFieldEnum = {
+  id: 'id',
+  campaign_name: 'campaign_name',
+  name: 'name',
+  phone_number: 'phone_number',
+  car_type: 'car_type',
+  car_brand: 'car_brand',
+  car_model: 'car_model',
+  car_year: 'car_year',
+  preferred_date: 'preferred_date',
+  preferred_time: 'preferred_time',
+  user_intent: 'user_intent',
+  lead_status: 'lead_status',
+  notes: 'notes',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type Campaign_leadsScalarFieldEnum = (typeof Campaign_leadsScalarFieldEnum)[keyof typeof Campaign_leadsScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -60,24 +60,6 @@ model carzspas_pages {
   updated_at       DateTime? @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
 }
 
-model ceramic_campaign_leads {
-  id             BigInt    @id(map: "leads_pkey") @default(autoincrement())
-  campaign_name  String    @db.VarChar(100)
-  name           String    @db.VarChar(100)
-  phone_number   String    @db.VarChar(15)
-  car_type       String?   @db.VarChar(50)
-  car_brand      String?   @db.VarChar(100)
-  car_model      String?   @db.VarChar(100)
-  car_year       Int?
-  preferred_date DateTime? @db.Date
-  preferred_time DateTime? @db.Time(6)
-  user_intent    String?   @db.VarChar(50)
-  lead_status    String?   @db.VarChar(50)
-  notes          String?
-  created_at     DateTime? @default(dbgenerated("timezone('Asia/Kolkata'::text, now())")) @db.Timestamptz(6)
-  updated_at     DateTime? @default(dbgenerated("timezone('Asia/Kolkata'::text, now())")) @db.Timestamptz(6)
-}
-
 model email_logs {
   id            Int       @id @default(autoincrement())
   booking_id    Int
@@ -132,4 +114,22 @@ model whatsapp_messages {
   message_category String    @default("chat") @db.VarChar(20)
 
   @@index([whatsappnumber], map: "idx_whatsapp_messages_fromnumber")
+}
+
+model campaign_leads {
+  id             Int       @id @default(autoincrement())
+  campaign_name  String?   @db.VarChar(100)
+  name           String    @db.VarChar(100)
+  phone_number   String    @db.VarChar(15)
+  car_type       String?   @db.VarChar(50)
+  car_brand      String?   @db.VarChar(100)
+  car_model      String?   @db.VarChar(100)
+  car_year       Int?
+  preferred_date DateTime? @db.Date
+  preferred_time DateTime? @db.Time(6)
+  user_intent    String?   @db.VarChar(50)
+  lead_status    String?   @db.VarChar(50)
+  notes          String?
+  created_at     DateTime? @default(dbgenerated("timezone('Asia/Kolkata'::text, now())")) @db.Timestamptz(6)
+  updated_at     DateTime? @default(dbgenerated("timezone('Asia/Kolkata'::text, now())")) @db.Timestamptz(6)
 }

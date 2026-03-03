@@ -4,7 +4,7 @@ import {
   loginAdminService,
 } from "../services/auth.service.js";
 import { generateAccessToken, generateRefreshToken } from "../utils/token.js";
-import { sendAuthCookies } from "../utils/cookies.js";
+import { clearAuthCookies, sendAuthCookies } from "../utils/cookies.js";
 import { prisma } from "../database/prisma.js";
 import type { AuthRequest } from "../middlewares/auth.middleware.js";
 import jwt from "jsonwebtoken";
@@ -90,6 +90,7 @@ export const checkAdminLoggedIn = async (
     return res.status(200).json({
       success: true,
       isLoggedIn: true,
+      message: "Admin logged in",
       data: admin,
     });
   } catch (error) {
@@ -146,6 +147,29 @@ export const refreshAdminToken = async (
     return res.status(401).json({
       success: false,
       message: "Invalid or expired refresh token",
+    });
+  }
+};
+
+export const logoutUser = async (req: AuthRequest, res: Response) => {
+  try {
+    if (!req.userId) {
+      return res.status(401).json({
+        success: false,
+        message: "Unauthorized",
+      });
+    }
+
+    clearAuthCookies(res);
+
+    return res.status(200).json({
+      success: true,
+      message: "Logged out successfully",
+    });
+  } catch (error) {
+    console.error("LOGOUT ERROR:", error);
+    return res.status(500).json({
+      message: "Internal server error",
     });
   }
 };

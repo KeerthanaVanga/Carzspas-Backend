@@ -1,5 +1,9 @@
 import type { Request, Response, NextFunction } from "express";
-import { getCampaignLeadsService } from "../services/campaignLeads.service.js";
+import {
+  getCampaignLeadsService,
+  updateLeadStatusService,
+} from "../services/campaignLeads.service.js";
+import { prisma } from "../database/prisma.js";
 
 export const getCampaignLeads = async (
   req: Request,
@@ -36,6 +40,54 @@ export const getCampaignLeads = async (
         page: result.page,
         totalPages: result.totalPages,
       },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateLeadStatus = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const id = Number(req.params.id);
+    const { lead_status } = req.body;
+
+    if (!id || !lead_status) {
+      return res.status(400).json({
+        success: false,
+        message: "Lead ID and status are required",
+      });
+    }
+
+    const updatedLead = await updateLeadStatusService(id, lead_status);
+
+    res.status(200).json({
+      success: true,
+      message: "Lead status updated successfully",
+      data: updatedLead,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getCampaignNames = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const campaigns = await prisma.campaign_leads.findMany({
+      select: { campaign_name: true },
+      distinct: ["campaign_name"],
+    });
+
+    res.json({
+      success: true,
+      data: campaigns.map((c) => c.campaign_name),
     });
   } catch (error) {
     next(error);
