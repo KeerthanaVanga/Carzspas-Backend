@@ -10,6 +10,7 @@ import campaignLeadRouter from "./routes/campaignLead.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import whatsappRoutes from "./routes/whatsapp.routes.js";
 import { errorHandler } from "./middlewares/error.middleware.js";
+import serviceRoutes from "./routes/services.routes.js";
 const app = express();
 
 const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(",") || [];
@@ -61,6 +62,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/campaign-leads", campaignLeadRouter);
 app.use("/api/users", userRoutes);
+app.use("/api/services", serviceRoutes);
 app.use("/api/whatsapp", whatsappRoutes); // New WhatsApp routes
 
 /* =========================

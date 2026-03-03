@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import { getAllWhatsappUsers } from "../services/whatsapp.service";
-import { getUserMessagesByPhone } from "../services/whatsapp.service";
+import { getAllWhatsappUsers } from "../services/whatsapp.service.js";
+import { getUserMessagesByPhone } from "../services/whatsapp.service.js";
 export const fetchWhatsappUsers = async (
   req: Request,
   res: Response,

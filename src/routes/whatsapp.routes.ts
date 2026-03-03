@@ -2,7 +2,7 @@ import { Router } from "express";
 import {
   fetchUserMessages,
   fetchWhatsappUsers,
-} from "../controllers/whatsapp.controller";
+} from "../controllers/whatsapp.controller.js";
 import { requireAuth } from "../middlewares/auth.middleware.js";
 
 const router = Router();

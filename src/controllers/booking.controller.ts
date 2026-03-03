@@ -2,8 +2,8 @@ import type { Request, Response, NextFunction } from "express";
 import {
   getAllBookingsService,
   updateBookingStatusService,
-} from "../services/booking.service";
-import { prisma } from "../database/prisma";
+} from "../services/booking.service.js";
+import { prisma } from "../database/prisma.js";
 
 export const getAllBookings = async (
   req: Request,

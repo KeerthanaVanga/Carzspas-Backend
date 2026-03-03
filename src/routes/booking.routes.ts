@@ -3,7 +3,7 @@ import {
   getAllBookings,
   getBookingStatus,
   updateBookingStatus,
-} from "../controllers/booking.controller";
+} from "../controllers/booking.controller.js";
 import { requireAuth } from "../middlewares/auth.middleware.js";
 
 const router = Router();

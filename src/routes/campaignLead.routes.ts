@@ -3,7 +3,7 @@ import {
   getCampaignLeads,
   getCampaignNames,
   updateLeadStatus,
-} from "../controllers/campaignLead.controller";
+} from "../controllers/campaignLead.controller.js";
 import { requireAuth } from "../middlewares/auth.middleware.js";
 
 const campaignLeadRouter = Router();
