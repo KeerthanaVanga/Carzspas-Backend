@@ -21,6 +21,20 @@ export const getAllWhatsappUsers = async (): Promise<WhatsAppUserDTO[]> => {
   return users;
 };
 
+export const getTodayUsersCount = async (): Promise<number> => {
+  const result = await prisma.$queryRaw<{ count: bigint }[]>`
+    SELECT COUNT(*) 
+    FROM (
+      SELECT whatsappnumber, MIN(created_at) AS first_message
+      FROM whatsapp_messages
+      GROUP BY whatsappnumber
+    ) t
+    WHERE DATE(first_message) = CURRENT_DATE
+  `;
+
+  return Number(result[0]?.count ?? 0);
+};
+
 export interface UserMessageDTO {
   id: bigint;
   message: string;
@@ -35,7 +49,7 @@ export const getUserMessagesByPhone = async (phoneNumber: string) => {
       whatsappnumber: phoneNumber,
     },
     orderBy: {
-      created_at: "desc",
+      created_at: "asc",
     },
     select: {
       id: true,
@@ -45,6 +59,8 @@ export const getUserMessagesByPhone = async (phoneNumber: string) => {
       created_at: true,
       name: true,
       whatsappnumber: true,
+      status: true,
+      whatsapp_message_id: true,
     },
   });
 

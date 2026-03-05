@@ -1304,7 +1304,9 @@ export const Whatsapp_messagesScalarFieldEnum = {
   message_type: 'message_type',
   created_at: 'created_at',
   name: 'name',
-  message_category: 'message_category'
+  message_category: 'message_category',
+  whatsapp_message_id: 'whatsapp_message_id',
+  status: 'status'
 } as const
 
 export type Whatsapp_messagesScalarFieldEnum = (typeof Whatsapp_messagesScalarFieldEnum)[keyof typeof Whatsapp_messagesScalarFieldEnum]

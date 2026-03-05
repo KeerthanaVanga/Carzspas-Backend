@@ -43,6 +43,8 @@ export type Whatsapp_messagesMinAggregateOutputType = {
   created_at: Date | null
   name: string | null
   message_category: string | null
+  whatsapp_message_id: string | null
+  status: string | null
 }
 
 export type Whatsapp_messagesMaxAggregateOutputType = {
@@ -54,6 +56,8 @@ export type Whatsapp_messagesMaxAggregateOutputType = {
   created_at: Date | null
   name: string | null
   message_category: string | null
+  whatsapp_message_id: string | null
+  status: string | null
 }
 
 export type Whatsapp_messagesCountAggregateOutputType = {
@@ -65,6 +69,8 @@ export type Whatsapp_messagesCountAggregateOutputType = {
   created_at: number
   name: number
   message_category: number
+  whatsapp_message_id: number
+  status: number
   _all: number
 }
 
@@ -86,6 +92,8 @@ export type Whatsapp_messagesMinAggregateInputType = {
   created_at?: true
   name?: true
   message_category?: true
+  whatsapp_message_id?: true
+  status?: true
 }
 
 export type Whatsapp_messagesMaxAggregateInputType = {
@@ -97,6 +105,8 @@ export type Whatsapp_messagesMaxAggregateInputType = {
   created_at?: true
   name?: true
   message_category?: true
+  whatsapp_message_id?: true
+  status?: true
 }
 
 export type Whatsapp_messagesCountAggregateInputType = {
@@ -108,6 +118,8 @@ export type Whatsapp_messagesCountAggregateInputType = {
   created_at?: true
   name?: true
   message_category?: true
+  whatsapp_message_id?: true
+  status?: true
   _all?: true
 }
 
@@ -206,6 +218,8 @@ export type Whatsapp_messagesGroupByOutputType = {
   created_at: Date | null
   name: string | null
   message_category: string
+  whatsapp_message_id: string | null
+  status: string | null
   _count: Whatsapp_messagesCountAggregateOutputType | null
   _avg: Whatsapp_messagesAvgAggregateOutputType | null
   _sum: Whatsapp_messagesSumAggregateOutputType | null
@@ -240,6 +254,8 @@ export type whatsapp_messagesWhereInput = {
   created_at?: Prisma.DateTimeNullableFilter<"whatsapp_messages"> | Date | string | null
   name?: Prisma.StringNullableFilter<"whatsapp_messages"> | string | null
   message_category?: Prisma.StringFilter<"whatsapp_messages"> | string
+  whatsapp_message_id?: Prisma.StringNullableFilter<"whatsapp_messages"> | string | null
+  status?: Prisma.StringNullableFilter<"whatsapp_messages"> | string | null
 }
 
 export type whatsapp_messagesOrderByWithRelationInput = {
@@ -251,10 +267,13 @@ export type whatsapp_messagesOrderByWithRelationInput = {
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   message_category?: Prisma.SortOrder
+  whatsapp_message_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrderInput | Prisma.SortOrder
 }
 
 export type whatsapp_messagesWhereUniqueInput = Prisma.AtLeast<{
   id?: bigint | number
+  whatsapp_message_id?: string
   AND?: Prisma.whatsapp_messagesWhereInput | Prisma.whatsapp_messagesWhereInput[]
   OR?: Prisma.whatsapp_messagesWhereInput[]
   NOT?: Prisma.whatsapp_messagesWhereInput | Prisma.whatsapp_messagesWhereInput[]
@@ -265,7 +284,8 @@ export type whatsapp_messagesWhereUniqueInput = Prisma.AtLeast<{
   created_at?: Prisma.DateTimeNullableFilter<"whatsapp_messages"> | Date | string | null
   name?: Prisma.StringNullableFilter<"whatsapp_messages"> | string | null
   message_category?: Prisma.StringFilter<"whatsapp_messages"> | string
-}, "id">
+  status?: Prisma.StringNullableFilter<"whatsapp_messages"> | string | null
+}, "id" | "whatsapp_message_id">
 
 export type whatsapp_messagesOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -276,6 +296,8 @@ export type whatsapp_messagesOrderByWithAggregationInput = {
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   message_category?: Prisma.SortOrder
+  whatsapp_message_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.whatsapp_messagesCountOrderByAggregateInput
   _avg?: Prisma.whatsapp_messagesAvgOrderByAggregateInput
   _max?: Prisma.whatsapp_messagesMaxOrderByAggregateInput
@@ -295,6 +317,8 @@ export type whatsapp_messagesScalarWhereWithAggregatesInput = {
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"whatsapp_messages"> | Date | string | null
   name?: Prisma.StringNullableWithAggregatesFilter<"whatsapp_messages"> | string | null
   message_category?: Prisma.StringWithAggregatesFilter<"whatsapp_messages"> | string
+  whatsapp_message_id?: Prisma.StringNullableWithAggregatesFilter<"whatsapp_messages"> | string | null
+  status?: Prisma.StringNullableWithAggregatesFilter<"whatsapp_messages"> | string | null
 }
 
 export type whatsapp_messagesCreateInput = {
@@ -306,6 +330,8 @@ export type whatsapp_messagesCreateInput = {
   created_at?: Date | string | null
   name?: string | null
   message_category?: string
+  whatsapp_message_id?: string | null
+  status?: string | null
 }
 
 export type whatsapp_messagesUncheckedCreateInput = {
@@ -317,6 +343,8 @@ export type whatsapp_messagesUncheckedCreateInput = {
   created_at?: Date | string | null
   name?: string | null
   message_category?: string
+  whatsapp_message_id?: string | null
+  status?: string | null
 }
 
 export type whatsapp_messagesUpdateInput = {
@@ -328,6 +356,8 @@ export type whatsapp_messagesUpdateInput = {
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   message_category?: Prisma.StringFieldUpdateOperationsInput | string
+  whatsapp_message_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type whatsapp_messagesUncheckedUpdateInput = {
@@ -339,6 +369,8 @@ export type whatsapp_messagesUncheckedUpdateInput = {
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   message_category?: Prisma.StringFieldUpdateOperationsInput | string
+  whatsapp_message_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type whatsapp_messagesCreateManyInput = {
@@ -350,6 +382,8 @@ export type whatsapp_messagesCreateManyInput = {
   created_at?: Date | string | null
   name?: string | null
   message_category?: string
+  whatsapp_message_id?: string | null
+  status?: string | null
 }
 
 export type whatsapp_messagesUpdateManyMutationInput = {
@@ -361,6 +395,8 @@ export type whatsapp_messagesUpdateManyMutationInput = {
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   message_category?: Prisma.StringFieldUpdateOperationsInput | string
+  whatsapp_message_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type whatsapp_messagesUncheckedUpdateManyInput = {
@@ -372,6 +408,8 @@ export type whatsapp_messagesUncheckedUpdateManyInput = {
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   message_category?: Prisma.StringFieldUpdateOperationsInput | string
+  whatsapp_message_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type whatsapp_messagesCountOrderByAggregateInput = {
@@ -383,6 +421,8 @@ export type whatsapp_messagesCountOrderByAggregateInput = {
   created_at?: Prisma.SortOrder
   name?: Prisma.SortOrder
   message_category?: Prisma.SortOrder
+  whatsapp_message_id?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type whatsapp_messagesAvgOrderByAggregateInput = {
@@ -398,6 +438,8 @@ export type whatsapp_messagesMaxOrderByAggregateInput = {
   created_at?: Prisma.SortOrder
   name?: Prisma.SortOrder
   message_category?: Prisma.SortOrder
+  whatsapp_message_id?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type whatsapp_messagesMinOrderByAggregateInput = {
@@ -409,6 +451,8 @@ export type whatsapp_messagesMinOrderByAggregateInput = {
   created_at?: Prisma.SortOrder
   name?: Prisma.SortOrder
   message_category?: Prisma.SortOrder
+  whatsapp_message_id?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type whatsapp_messagesSumOrderByAggregateInput = {
@@ -434,6 +478,8 @@ export type whatsapp_messagesSelect<ExtArgs extends runtime.Types.Extensions.Int
   created_at?: boolean
   name?: boolean
   message_category?: boolean
+  whatsapp_message_id?: boolean
+  status?: boolean
 }, ExtArgs["result"]["whatsapp_messages"]>
 
 export type whatsapp_messagesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -445,6 +491,8 @@ export type whatsapp_messagesSelectCreateManyAndReturn<ExtArgs extends runtime.T
   created_at?: boolean
   name?: boolean
   message_category?: boolean
+  whatsapp_message_id?: boolean
+  status?: boolean
 }, ExtArgs["result"]["whatsapp_messages"]>
 
 export type whatsapp_messagesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -456,6 +504,8 @@ export type whatsapp_messagesSelectUpdateManyAndReturn<ExtArgs extends runtime.T
   created_at?: boolean
   name?: boolean
   message_category?: boolean
+  whatsapp_message_id?: boolean
+  status?: boolean
 }, ExtArgs["result"]["whatsapp_messages"]>
 
 export type whatsapp_messagesSelectScalar = {
@@ -467,9 +517,11 @@ export type whatsapp_messagesSelectScalar = {
   created_at?: boolean
   name?: boolean
   message_category?: boolean
+  whatsapp_message_id?: boolean
+  status?: boolean
 }
 
-export type whatsapp_messagesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "whatsappnumber" | "message" | "sender_type" | "message_type" | "created_at" | "name" | "message_category", ExtArgs["result"]["whatsapp_messages"]>
+export type whatsapp_messagesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "whatsappnumber" | "message" | "sender_type" | "message_type" | "created_at" | "name" | "message_category" | "whatsapp_message_id" | "status", ExtArgs["result"]["whatsapp_messages"]>
 
 export type $whatsapp_messagesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "whatsapp_messages"
@@ -483,6 +535,8 @@ export type $whatsapp_messagesPayload<ExtArgs extends runtime.Types.Extensions.I
     created_at: Date | null
     name: string | null
     message_category: string
+    whatsapp_message_id: string | null
+    status: string | null
   }, ExtArgs["result"]["whatsapp_messages"]>
   composites: {}
 }
@@ -914,6 +968,8 @@ export interface whatsapp_messagesFieldRefs {
   readonly created_at: Prisma.FieldRef<"whatsapp_messages", 'DateTime'>
   readonly name: Prisma.FieldRef<"whatsapp_messages", 'String'>
   readonly message_category: Prisma.FieldRef<"whatsapp_messages", 'String'>
+  readonly whatsapp_message_id: Prisma.FieldRef<"whatsapp_messages", 'String'>
+  readonly status: Prisma.FieldRef<"whatsapp_messages", 'String'>
 }
     
 

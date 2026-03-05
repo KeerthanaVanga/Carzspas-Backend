@@ -1,16 +1,22 @@
 import type { Request, Response } from "express";
-import { getAllWhatsappUsers } from "../services/whatsapp.service.js";
-import { getUserMessagesByPhone } from "../services/whatsapp.service.js";
+import {
+  getAllWhatsappUsers,
+  getUserMessagesByPhone,
+  getTodayUsersCount,
+} from "../services/whatsapp.service.js";
+
 export const fetchWhatsappUsers = async (
   req: Request,
   res: Response,
 ): Promise<void> => {
   try {
     const users = await getAllWhatsappUsers();
+    const todayUsers = await getTodayUsersCount();
 
     res.status(200).json({
       success: true,
       count: users.length,
+      todayUsers: todayUsers,
       data: users,
     });
   } catch (error) {
@@ -59,6 +65,8 @@ export const fetchUserMessages = async (
         senderType: msg.sender_type,
         messageType: msg.message_type,
         createdAt: msg.created_at,
+        status: msg.status,
+        whatsappMessageId: msg.whatsapp_message_id,
       })),
     });
   } catch (error) {

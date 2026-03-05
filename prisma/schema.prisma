@@ -104,14 +104,16 @@ model users {
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model whatsapp_messages {
-  id               BigInt    @id @default(autoincrement())
-  whatsappnumber   String    @db.VarChar(20)
-  message          String
-  sender_type      String    @db.VarChar(10)
-  message_type     String?   @default("text") @db.VarChar(20)
-  created_at       DateTime? @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
-  name             String?
-  message_category String    @default("chat") @db.VarChar(20)
+  id                  BigInt    @id @default(autoincrement())
+  whatsappnumber      String    @db.VarChar(20)
+  message             String
+  sender_type         String    @db.VarChar(10)
+  message_type        String?   @default("text") @db.VarChar(20)
+  created_at          DateTime? @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  name                String?
+  message_category    String    @default("chat") @db.VarChar(20)
+  whatsapp_message_id String?   @unique @db.VarChar(100)
+  status              String?   @default("sent") @db.VarChar(20)
 
   @@index([whatsappnumber], map: "idx_whatsapp_messages_fromnumber")
 }
