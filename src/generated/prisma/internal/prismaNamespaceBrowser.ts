@@ -60,7 +60,9 @@ export const ModelName = {
   services: 'services',
   users: 'users',
   whatsapp_messages: 'whatsapp_messages',
-  campaign_leads: 'campaign_leads'
+  campaign_leads: 'campaign_leads',
+  booking_status_history: 'booking_status_history',
+  campaign_lead_status_history: 'campaign_lead_status_history'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -218,6 +220,32 @@ export const Campaign_leadsScalarFieldEnum = {
 } as const
 
 export type Campaign_leadsScalarFieldEnum = (typeof Campaign_leadsScalarFieldEnum)[keyof typeof Campaign_leadsScalarFieldEnum]
+
+
+export const Booking_status_historyScalarFieldEnum = {
+  id: 'id',
+  booking_id: 'booking_id',
+  old_status: 'old_status',
+  new_status: 'new_status',
+  changed_by: 'changed_by',
+  notes: 'notes',
+  created_at: 'created_at'
+} as const
+
+export type Booking_status_historyScalarFieldEnum = (typeof Booking_status_historyScalarFieldEnum)[keyof typeof Booking_status_historyScalarFieldEnum]
+
+
+export const Campaign_lead_status_historyScalarFieldEnum = {
+  id: 'id',
+  lead_id: 'lead_id',
+  old_status: 'old_status',
+  new_status: 'new_status',
+  changed_by: 'changed_by',
+  notes: 'notes',
+  created_at: 'created_at'
+} as const
+
+export type Campaign_lead_status_historyScalarFieldEnum = (typeof Campaign_lead_status_historyScalarFieldEnum)[keyof typeof Campaign_lead_status_historyScalarFieldEnum]
 
 
 export const SortOrder = {

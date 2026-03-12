@@ -300,6 +300,7 @@ export type campaign_leadsWhereInput = {
   notes?: Prisma.StringNullableFilter<"campaign_leads"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"campaign_leads"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"campaign_leads"> | Date | string | null
+  campaign_lead_status_history?: Prisma.Campaign_lead_status_historyListRelationFilter
 }
 
 export type campaign_leadsOrderByWithRelationInput = {
@@ -318,6 +319,7 @@ export type campaign_leadsOrderByWithRelationInput = {
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  campaign_lead_status_history?: Prisma.campaign_lead_status_historyOrderByRelationAggregateInput
 }
 
 export type campaign_leadsWhereUniqueInput = Prisma.AtLeast<{
@@ -339,6 +341,7 @@ export type campaign_leadsWhereUniqueInput = Prisma.AtLeast<{
   notes?: Prisma.StringNullableFilter<"campaign_leads"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"campaign_leads"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"campaign_leads"> | Date | string | null
+  campaign_lead_status_history?: Prisma.Campaign_lead_status_historyListRelationFilter
 }, "id">
 
 export type campaign_leadsOrderByWithAggregationInput = {
@@ -400,6 +403,7 @@ export type campaign_leadsCreateInput = {
   notes?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  campaign_lead_status_history?: Prisma.campaign_lead_status_historyCreateNestedManyWithoutCampaign_leadsInput
 }
 
 export type campaign_leadsUncheckedCreateInput = {
@@ -418,6 +422,7 @@ export type campaign_leadsUncheckedCreateInput = {
   notes?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  campaign_lead_status_history?: Prisma.campaign_lead_status_historyUncheckedCreateNestedManyWithoutCampaign_leadsInput
 }
 
 export type campaign_leadsUpdateInput = {
@@ -435,6 +440,7 @@ export type campaign_leadsUpdateInput = {
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  campaign_lead_status_history?: Prisma.campaign_lead_status_historyUpdateManyWithoutCampaign_leadsNestedInput
 }
 
 export type campaign_leadsUncheckedUpdateInput = {
@@ -453,6 +459,7 @@ export type campaign_leadsUncheckedUpdateInput = {
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  campaign_lead_status_history?: Prisma.campaign_lead_status_historyUncheckedUpdateManyWithoutCampaign_leadsNestedInput
 }
 
 export type campaign_leadsCreateManyInput = {
@@ -572,6 +579,140 @@ export type campaign_leadsSumOrderByAggregateInput = {
   car_year?: Prisma.SortOrder
 }
 
+export type Campaign_leadsScalarRelationFilter = {
+  is?: Prisma.campaign_leadsWhereInput
+  isNot?: Prisma.campaign_leadsWhereInput
+}
+
+export type campaign_leadsCreateNestedOneWithoutCampaign_lead_status_historyInput = {
+  create?: Prisma.XOR<Prisma.campaign_leadsCreateWithoutCampaign_lead_status_historyInput, Prisma.campaign_leadsUncheckedCreateWithoutCampaign_lead_status_historyInput>
+  connectOrCreate?: Prisma.campaign_leadsCreateOrConnectWithoutCampaign_lead_status_historyInput
+  connect?: Prisma.campaign_leadsWhereUniqueInput
+}
+
+export type campaign_leadsUpdateOneRequiredWithoutCampaign_lead_status_historyNestedInput = {
+  create?: Prisma.XOR<Prisma.campaign_leadsCreateWithoutCampaign_lead_status_historyInput, Prisma.campaign_leadsUncheckedCreateWithoutCampaign_lead_status_historyInput>
+  connectOrCreate?: Prisma.campaign_leadsCreateOrConnectWithoutCampaign_lead_status_historyInput
+  upsert?: Prisma.campaign_leadsUpsertWithoutCampaign_lead_status_historyInput
+  connect?: Prisma.campaign_leadsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.campaign_leadsUpdateToOneWithWhereWithoutCampaign_lead_status_historyInput, Prisma.campaign_leadsUpdateWithoutCampaign_lead_status_historyInput>, Prisma.campaign_leadsUncheckedUpdateWithoutCampaign_lead_status_historyInput>
+}
+
+export type campaign_leadsCreateWithoutCampaign_lead_status_historyInput = {
+  campaign_name?: string | null
+  name: string
+  phone_number: string
+  car_type?: string | null
+  car_brand?: string | null
+  car_model?: string | null
+  car_year?: number | null
+  preferred_date?: Date | string | null
+  preferred_time?: Date | string | null
+  user_intent?: string | null
+  lead_status?: string | null
+  notes?: string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+}
+
+export type campaign_leadsUncheckedCreateWithoutCampaign_lead_status_historyInput = {
+  id?: number
+  campaign_name?: string | null
+  name: string
+  phone_number: string
+  car_type?: string | null
+  car_brand?: string | null
+  car_model?: string | null
+  car_year?: number | null
+  preferred_date?: Date | string | null
+  preferred_time?: Date | string | null
+  user_intent?: string | null
+  lead_status?: string | null
+  notes?: string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+}
+
+export type campaign_leadsCreateOrConnectWithoutCampaign_lead_status_historyInput = {
+  where: Prisma.campaign_leadsWhereUniqueInput
+  create: Prisma.XOR<Prisma.campaign_leadsCreateWithoutCampaign_lead_status_historyInput, Prisma.campaign_leadsUncheckedCreateWithoutCampaign_lead_status_historyInput>
+}
+
+export type campaign_leadsUpsertWithoutCampaign_lead_status_historyInput = {
+  update: Prisma.XOR<Prisma.campaign_leadsUpdateWithoutCampaign_lead_status_historyInput, Prisma.campaign_leadsUncheckedUpdateWithoutCampaign_lead_status_historyInput>
+  create: Prisma.XOR<Prisma.campaign_leadsCreateWithoutCampaign_lead_status_historyInput, Prisma.campaign_leadsUncheckedCreateWithoutCampaign_lead_status_historyInput>
+  where?: Prisma.campaign_leadsWhereInput
+}
+
+export type campaign_leadsUpdateToOneWithWhereWithoutCampaign_lead_status_historyInput = {
+  where?: Prisma.campaign_leadsWhereInput
+  data: Prisma.XOR<Prisma.campaign_leadsUpdateWithoutCampaign_lead_status_historyInput, Prisma.campaign_leadsUncheckedUpdateWithoutCampaign_lead_status_historyInput>
+}
+
+export type campaign_leadsUpdateWithoutCampaign_lead_status_historyInput = {
+  campaign_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  phone_number?: Prisma.StringFieldUpdateOperationsInput | string
+  car_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  car_brand?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  car_model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  car_year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  preferred_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  preferred_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  user_intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lead_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
+export type campaign_leadsUncheckedUpdateWithoutCampaign_lead_status_historyInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  campaign_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  phone_number?: Prisma.StringFieldUpdateOperationsInput | string
+  car_type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  car_brand?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  car_model?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  car_year?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  preferred_date?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  preferred_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  user_intent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lead_status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+}
+
+
+/**
+ * Count Type Campaign_leadsCountOutputType
+ */
+
+export type Campaign_leadsCountOutputType = {
+  campaign_lead_status_history: number
+}
+
+export type Campaign_leadsCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  campaign_lead_status_history?: boolean | Campaign_leadsCountOutputTypeCountCampaign_lead_status_historyArgs
+}
+
+/**
+ * Campaign_leadsCountOutputType without action
+ */
+export type Campaign_leadsCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Campaign_leadsCountOutputType
+   */
+  select?: Prisma.Campaign_leadsCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * Campaign_leadsCountOutputType without action
+ */
+export type Campaign_leadsCountOutputTypeCountCampaign_lead_status_historyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.campaign_lead_status_historyWhereInput
+}
 
 
 export type campaign_leadsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -590,6 +731,8 @@ export type campaign_leadsSelect<ExtArgs extends runtime.Types.Extensions.Intern
   notes?: boolean
   created_at?: boolean
   updated_at?: boolean
+  campaign_lead_status_history?: boolean | Prisma.campaign_leads$campaign_lead_status_historyArgs<ExtArgs>
+  _count?: boolean | Prisma.Campaign_leadsCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["campaign_leads"]>
 
 export type campaign_leadsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -647,10 +790,18 @@ export type campaign_leadsSelectScalar = {
 }
 
 export type campaign_leadsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "campaign_name" | "name" | "phone_number" | "car_type" | "car_brand" | "car_model" | "car_year" | "preferred_date" | "preferred_time" | "user_intent" | "lead_status" | "notes" | "created_at" | "updated_at", ExtArgs["result"]["campaign_leads"]>
+export type campaign_leadsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  campaign_lead_status_history?: boolean | Prisma.campaign_leads$campaign_lead_status_historyArgs<ExtArgs>
+  _count?: boolean | Prisma.Campaign_leadsCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type campaign_leadsIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type campaign_leadsIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $campaign_leadsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "campaign_leads"
-  objects: {}
+  objects: {
+    campaign_lead_status_history: Prisma.$campaign_lead_status_historyPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     campaign_name: string | null
@@ -1061,6 +1212,7 @@ readonly fields: campaign_leadsFieldRefs;
  */
 export interface Prisma__campaign_leadsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  campaign_lead_status_history<T extends Prisma.campaign_leads$campaign_lead_status_historyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.campaign_leads$campaign_lead_status_historyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$campaign_lead_status_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1122,6 +1274,10 @@ export type campaign_leadsFindUniqueArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.campaign_leadsOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.campaign_leadsInclude<ExtArgs> | null
+  /**
    * Filter, which campaign_leads to fetch.
    */
   where: Prisma.campaign_leadsWhereUniqueInput
@@ -1140,6 +1296,10 @@ export type campaign_leadsFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Ex
    */
   omit?: Prisma.campaign_leadsOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.campaign_leadsInclude<ExtArgs> | null
+  /**
    * Filter, which campaign_leads to fetch.
    */
   where: Prisma.campaign_leadsWhereUniqueInput
@@ -1157,6 +1317,10 @@ export type campaign_leadsFindFirstArgs<ExtArgs extends runtime.Types.Extensions
    * Omit specific fields from the campaign_leads
    */
   omit?: Prisma.campaign_leadsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.campaign_leadsInclude<ExtArgs> | null
   /**
    * Filter, which campaign_leads to fetch.
    */
@@ -1206,6 +1370,10 @@ export type campaign_leadsFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Ext
    */
   omit?: Prisma.campaign_leadsOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.campaign_leadsInclude<ExtArgs> | null
+  /**
    * Filter, which campaign_leads to fetch.
    */
   where?: Prisma.campaign_leadsWhereInput
@@ -1254,6 +1422,10 @@ export type campaign_leadsFindManyArgs<ExtArgs extends runtime.Types.Extensions.
    */
   omit?: Prisma.campaign_leadsOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.campaign_leadsInclude<ExtArgs> | null
+  /**
    * Filter, which campaign_leads to fetch.
    */
   where?: Prisma.campaign_leadsWhereInput
@@ -1296,6 +1468,10 @@ export type campaign_leadsCreateArgs<ExtArgs extends runtime.Types.Extensions.In
    * Omit specific fields from the campaign_leads
    */
   omit?: Prisma.campaign_leadsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.campaign_leadsInclude<ExtArgs> | null
   /**
    * The data needed to create a campaign_leads.
    */
@@ -1344,6 +1520,10 @@ export type campaign_leadsUpdateArgs<ExtArgs extends runtime.Types.Extensions.In
    * Omit specific fields from the campaign_leads
    */
   omit?: Prisma.campaign_leadsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.campaign_leadsInclude<ExtArgs> | null
   /**
    * The data needed to update a campaign_leads.
    */
@@ -1411,6 +1591,10 @@ export type campaign_leadsUpsertArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   omit?: Prisma.campaign_leadsOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.campaign_leadsInclude<ExtArgs> | null
+  /**
    * The filter to search for the campaign_leads to update in case it exists.
    */
   where: Prisma.campaign_leadsWhereUniqueInput
@@ -1437,6 +1621,10 @@ export type campaign_leadsDeleteArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   omit?: Prisma.campaign_leadsOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.campaign_leadsInclude<ExtArgs> | null
+  /**
    * Filter which campaign_leads to delete.
    */
   where: Prisma.campaign_leadsWhereUniqueInput
@@ -1457,6 +1645,30 @@ export type campaign_leadsDeleteManyArgs<ExtArgs extends runtime.Types.Extension
 }
 
 /**
+ * campaign_leads.campaign_lead_status_history
+ */
+export type campaign_leads$campaign_lead_status_historyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the campaign_lead_status_history
+   */
+  select?: Prisma.campaign_lead_status_historySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the campaign_lead_status_history
+   */
+  omit?: Prisma.campaign_lead_status_historyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.campaign_lead_status_historyInclude<ExtArgs> | null
+  where?: Prisma.campaign_lead_status_historyWhereInput
+  orderBy?: Prisma.campaign_lead_status_historyOrderByWithRelationInput | Prisma.campaign_lead_status_historyOrderByWithRelationInput[]
+  cursor?: Prisma.campaign_lead_status_historyWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Campaign_lead_status_historyScalarFieldEnum | Prisma.Campaign_lead_status_historyScalarFieldEnum[]
+}
+
+/**
  * campaign_leads without action
  */
 export type campaign_leadsDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1468,4 +1680,8 @@ export type campaign_leadsDefaultArgs<ExtArgs extends runtime.Types.Extensions.I
    * Omit specific fields from the campaign_leads
    */
   omit?: Prisma.campaign_leadsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.campaign_leadsInclude<ExtArgs> | null
 }

@@ -67,3 +67,13 @@ export type whatsapp_messages = Prisma.whatsapp_messagesModel
  * 
  */
 export type campaign_leads = Prisma.campaign_leadsModel
+/**
+ * Model booking_status_history
+ * 
+ */
+export type booking_status_history = Prisma.booking_status_historyModel
+/**
+ * Model campaign_lead_status_history
+ * 
+ */
+export type campaign_lead_status_history = Prisma.campaign_lead_status_historyModel

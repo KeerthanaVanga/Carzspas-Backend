@@ -393,7 +393,9 @@ export const ModelName = {
   services: 'services',
   users: 'users',
   whatsapp_messages: 'whatsapp_messages',
-  campaign_leads: 'campaign_leads'
+  campaign_leads: 'campaign_leads',
+  booking_status_history: 'booking_status_history',
+  campaign_lead_status_history: 'campaign_lead_status_history'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -409,7 +411,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "admin" | "bookings" | "branches" | "carzspas_pages" | "email_logs" | "email_templates" | "services" | "users" | "whatsapp_messages" | "campaign_leads"
+    modelProps: "admin" | "bookings" | "branches" | "carzspas_pages" | "email_logs" | "email_templates" | "services" | "users" | "whatsapp_messages" | "campaign_leads" | "booking_status_history" | "campaign_lead_status_history"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1153,6 +1155,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    booking_status_history: {
+      payload: Prisma.$booking_status_historyPayload<ExtArgs>
+      fields: Prisma.booking_status_historyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.booking_status_historyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booking_status_historyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.booking_status_historyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booking_status_historyPayload>
+        }
+        findFirst: {
+          args: Prisma.booking_status_historyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booking_status_historyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.booking_status_historyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booking_status_historyPayload>
+        }
+        findMany: {
+          args: Prisma.booking_status_historyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booking_status_historyPayload>[]
+        }
+        create: {
+          args: Prisma.booking_status_historyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booking_status_historyPayload>
+        }
+        createMany: {
+          args: Prisma.booking_status_historyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.booking_status_historyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booking_status_historyPayload>[]
+        }
+        delete: {
+          args: Prisma.booking_status_historyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booking_status_historyPayload>
+        }
+        update: {
+          args: Prisma.booking_status_historyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booking_status_historyPayload>
+        }
+        deleteMany: {
+          args: Prisma.booking_status_historyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.booking_status_historyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.booking_status_historyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booking_status_historyPayload>[]
+        }
+        upsert: {
+          args: Prisma.booking_status_historyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$booking_status_historyPayload>
+        }
+        aggregate: {
+          args: Prisma.Booking_status_historyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBooking_status_history>
+        }
+        groupBy: {
+          args: Prisma.booking_status_historyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Booking_status_historyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.booking_status_historyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Booking_status_historyCountAggregateOutputType> | number
+        }
+      }
+    }
+    campaign_lead_status_history: {
+      payload: Prisma.$campaign_lead_status_historyPayload<ExtArgs>
+      fields: Prisma.campaign_lead_status_historyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.campaign_lead_status_historyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_lead_status_historyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.campaign_lead_status_historyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_lead_status_historyPayload>
+        }
+        findFirst: {
+          args: Prisma.campaign_lead_status_historyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_lead_status_historyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.campaign_lead_status_historyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_lead_status_historyPayload>
+        }
+        findMany: {
+          args: Prisma.campaign_lead_status_historyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_lead_status_historyPayload>[]
+        }
+        create: {
+          args: Prisma.campaign_lead_status_historyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_lead_status_historyPayload>
+        }
+        createMany: {
+          args: Prisma.campaign_lead_status_historyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.campaign_lead_status_historyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_lead_status_historyPayload>[]
+        }
+        delete: {
+          args: Prisma.campaign_lead_status_historyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_lead_status_historyPayload>
+        }
+        update: {
+          args: Prisma.campaign_lead_status_historyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_lead_status_historyPayload>
+        }
+        deleteMany: {
+          args: Prisma.campaign_lead_status_historyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.campaign_lead_status_historyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.campaign_lead_status_historyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_lead_status_historyPayload>[]
+        }
+        upsert: {
+          args: Prisma.campaign_lead_status_historyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$campaign_lead_status_historyPayload>
+        }
+        aggregate: {
+          args: Prisma.Campaign_lead_status_historyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCampaign_lead_status_history>
+        }
+        groupBy: {
+          args: Prisma.campaign_lead_status_historyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Campaign_lead_status_historyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.campaign_lead_status_historyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Campaign_lead_status_historyCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1331,6 +1481,32 @@ export const Campaign_leadsScalarFieldEnum = {
 } as const
 
 export type Campaign_leadsScalarFieldEnum = (typeof Campaign_leadsScalarFieldEnum)[keyof typeof Campaign_leadsScalarFieldEnum]
+
+
+export const Booking_status_historyScalarFieldEnum = {
+  id: 'id',
+  booking_id: 'booking_id',
+  old_status: 'old_status',
+  new_status: 'new_status',
+  changed_by: 'changed_by',
+  notes: 'notes',
+  created_at: 'created_at'
+} as const
+
+export type Booking_status_historyScalarFieldEnum = (typeof Booking_status_historyScalarFieldEnum)[keyof typeof Booking_status_historyScalarFieldEnum]
+
+
+export const Campaign_lead_status_historyScalarFieldEnum = {
+  id: 'id',
+  lead_id: 'lead_id',
+  old_status: 'old_status',
+  new_status: 'new_status',
+  changed_by: 'changed_by',
+  notes: 'notes',
+  created_at: 'created_at'
+} as const
+
+export type Campaign_lead_status_historyScalarFieldEnum = (typeof Campaign_lead_status_historyScalarFieldEnum)[keyof typeof Campaign_lead_status_historyScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1551,6 +1727,8 @@ export type GlobalOmitConfig = {
   users?: Prisma.usersOmit
   whatsapp_messages?: Prisma.whatsapp_messagesOmit
   campaign_leads?: Prisma.campaign_leadsOmit
+  booking_status_history?: Prisma.booking_status_historyOmit
+  campaign_lead_status_history?: Prisma.campaign_lead_status_historyOmit
 }
 
 /* Types for Logging */

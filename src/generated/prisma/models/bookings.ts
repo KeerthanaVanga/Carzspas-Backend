@@ -276,6 +276,7 @@ export type bookingsWhereInput = {
   carmodel?: Prisma.StringNullableFilter<"bookings"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"bookings"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"bookings"> | Date | string | null
+  booking_status_history?: Prisma.Booking_status_historyListRelationFilter
   branches?: Prisma.XOR<Prisma.BranchesNullableScalarRelationFilter, Prisma.branchesWhereInput> | null
   services?: Prisma.XOR<Prisma.ServicesNullableScalarRelationFilter, Prisma.servicesWhereInput> | null
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
@@ -294,6 +295,7 @@ export type bookingsOrderByWithRelationInput = {
   carmodel?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  booking_status_history?: Prisma.booking_status_historyOrderByRelationAggregateInput
   branches?: Prisma.branchesOrderByWithRelationInput
   services?: Prisma.servicesOrderByWithRelationInput
   users?: Prisma.usersOrderByWithRelationInput
@@ -315,6 +317,7 @@ export type bookingsWhereUniqueInput = Prisma.AtLeast<{
   carmodel?: Prisma.StringNullableFilter<"bookings"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"bookings"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"bookings"> | Date | string | null
+  booking_status_history?: Prisma.Booking_status_historyListRelationFilter
   branches?: Prisma.XOR<Prisma.BranchesNullableScalarRelationFilter, Prisma.branchesWhereInput> | null
   services?: Prisma.XOR<Prisma.ServicesNullableScalarRelationFilter, Prisma.servicesWhereInput> | null
   users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.usersWhereInput>
@@ -365,6 +368,7 @@ export type bookingsCreateInput = {
   carmodel?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  booking_status_history?: Prisma.booking_status_historyCreateNestedManyWithoutBookingsInput
   branches?: Prisma.branchesCreateNestedOneWithoutBookingsInput
   services?: Prisma.servicesCreateNestedOneWithoutBookingsInput
   users: Prisma.usersCreateNestedOneWithoutBookingsInput
@@ -383,6 +387,7 @@ export type bookingsUncheckedCreateInput = {
   carmodel?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUncheckedCreateNestedManyWithoutBookingsInput
   email_logs?: Prisma.email_logsUncheckedCreateNestedManyWithoutBookingsInput
 }
 
@@ -394,6 +399,7 @@ export type bookingsUpdateInput = {
   carmodel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUpdateManyWithoutBookingsNestedInput
   branches?: Prisma.branchesUpdateOneWithoutBookingsNestedInput
   services?: Prisma.servicesUpdateOneWithoutBookingsNestedInput
   users?: Prisma.usersUpdateOneRequiredWithoutBookingsNestedInput
@@ -412,6 +418,7 @@ export type bookingsUncheckedUpdateInput = {
   carmodel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUncheckedUpdateManyWithoutBookingsNestedInput
   email_logs?: Prisma.email_logsUncheckedUpdateManyWithoutBookingsNestedInput
 }
 
@@ -688,6 +695,20 @@ export type bookingsUncheckedUpdateManyWithoutUsersNestedInput = {
   deleteMany?: Prisma.bookingsScalarWhereInput | Prisma.bookingsScalarWhereInput[]
 }
 
+export type bookingsCreateNestedOneWithoutBooking_status_historyInput = {
+  create?: Prisma.XOR<Prisma.bookingsCreateWithoutBooking_status_historyInput, Prisma.bookingsUncheckedCreateWithoutBooking_status_historyInput>
+  connectOrCreate?: Prisma.bookingsCreateOrConnectWithoutBooking_status_historyInput
+  connect?: Prisma.bookingsWhereUniqueInput
+}
+
+export type bookingsUpdateOneRequiredWithoutBooking_status_historyNestedInput = {
+  create?: Prisma.XOR<Prisma.bookingsCreateWithoutBooking_status_historyInput, Prisma.bookingsUncheckedCreateWithoutBooking_status_historyInput>
+  connectOrCreate?: Prisma.bookingsCreateOrConnectWithoutBooking_status_historyInput
+  upsert?: Prisma.bookingsUpsertWithoutBooking_status_historyInput
+  connect?: Prisma.bookingsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.bookingsUpdateToOneWithWhereWithoutBooking_status_historyInput, Prisma.bookingsUpdateWithoutBooking_status_historyInput>, Prisma.bookingsUncheckedUpdateWithoutBooking_status_historyInput>
+}
+
 export type bookingsCreateWithoutBranchesInput = {
   date: Date | string
   time: Date | string
@@ -696,6 +717,7 @@ export type bookingsCreateWithoutBranchesInput = {
   carmodel?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  booking_status_history?: Prisma.booking_status_historyCreateNestedManyWithoutBookingsInput
   services?: Prisma.servicesCreateNestedOneWithoutBookingsInput
   users: Prisma.usersCreateNestedOneWithoutBookingsInput
   email_logs?: Prisma.email_logsCreateNestedManyWithoutBookingsInput
@@ -712,6 +734,7 @@ export type bookingsUncheckedCreateWithoutBranchesInput = {
   carmodel?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUncheckedCreateNestedManyWithoutBookingsInput
   email_logs?: Prisma.email_logsUncheckedCreateNestedManyWithoutBookingsInput
 }
 
@@ -766,6 +789,7 @@ export type bookingsCreateWithoutEmail_logsInput = {
   carmodel?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  booking_status_history?: Prisma.booking_status_historyCreateNestedManyWithoutBookingsInput
   branches?: Prisma.branchesCreateNestedOneWithoutBookingsInput
   services?: Prisma.servicesCreateNestedOneWithoutBookingsInput
   users: Prisma.usersCreateNestedOneWithoutBookingsInput
@@ -783,6 +807,7 @@ export type bookingsUncheckedCreateWithoutEmail_logsInput = {
   carmodel?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUncheckedCreateNestedManyWithoutBookingsInput
 }
 
 export type bookingsCreateOrConnectWithoutEmail_logsInput = {
@@ -809,6 +834,7 @@ export type bookingsUpdateWithoutEmail_logsInput = {
   carmodel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUpdateManyWithoutBookingsNestedInput
   branches?: Prisma.branchesUpdateOneWithoutBookingsNestedInput
   services?: Prisma.servicesUpdateOneWithoutBookingsNestedInput
   users?: Prisma.usersUpdateOneRequiredWithoutBookingsNestedInput
@@ -826,6 +852,7 @@ export type bookingsUncheckedUpdateWithoutEmail_logsInput = {
   carmodel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUncheckedUpdateManyWithoutBookingsNestedInput
 }
 
 export type bookingsCreateWithoutServicesInput = {
@@ -836,6 +863,7 @@ export type bookingsCreateWithoutServicesInput = {
   carmodel?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  booking_status_history?: Prisma.booking_status_historyCreateNestedManyWithoutBookingsInput
   branches?: Prisma.branchesCreateNestedOneWithoutBookingsInput
   users: Prisma.usersCreateNestedOneWithoutBookingsInput
   email_logs?: Prisma.email_logsCreateNestedManyWithoutBookingsInput
@@ -852,6 +880,7 @@ export type bookingsUncheckedCreateWithoutServicesInput = {
   carmodel?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUncheckedCreateNestedManyWithoutBookingsInput
   email_logs?: Prisma.email_logsUncheckedCreateNestedManyWithoutBookingsInput
 }
 
@@ -889,6 +918,7 @@ export type bookingsCreateWithoutUsersInput = {
   carmodel?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  booking_status_history?: Prisma.booking_status_historyCreateNestedManyWithoutBookingsInput
   branches?: Prisma.branchesCreateNestedOneWithoutBookingsInput
   services?: Prisma.servicesCreateNestedOneWithoutBookingsInput
   email_logs?: Prisma.email_logsCreateNestedManyWithoutBookingsInput
@@ -905,6 +935,7 @@ export type bookingsUncheckedCreateWithoutUsersInput = {
   carmodel?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUncheckedCreateNestedManyWithoutBookingsInput
   email_logs?: Prisma.email_logsUncheckedCreateNestedManyWithoutBookingsInput
 }
 
@@ -934,6 +965,80 @@ export type bookingsUpdateManyWithWhereWithoutUsersInput = {
   data: Prisma.XOR<Prisma.bookingsUpdateManyMutationInput, Prisma.bookingsUncheckedUpdateManyWithoutUsersInput>
 }
 
+export type bookingsCreateWithoutBooking_status_historyInput = {
+  date: Date | string
+  time: Date | string
+  status: string
+  source?: string | null
+  carmodel?: string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  branches?: Prisma.branchesCreateNestedOneWithoutBookingsInput
+  services?: Prisma.servicesCreateNestedOneWithoutBookingsInput
+  users: Prisma.usersCreateNestedOneWithoutBookingsInput
+  email_logs?: Prisma.email_logsCreateNestedManyWithoutBookingsInput
+}
+
+export type bookingsUncheckedCreateWithoutBooking_status_historyInput = {
+  booking_id?: number
+  user_id: number
+  service_id?: number | null
+  branch_id?: number | null
+  date: Date | string
+  time: Date | string
+  status: string
+  source?: string | null
+  carmodel?: string | null
+  created_at?: Date | string | null
+  updated_at?: Date | string | null
+  email_logs?: Prisma.email_logsUncheckedCreateNestedManyWithoutBookingsInput
+}
+
+export type bookingsCreateOrConnectWithoutBooking_status_historyInput = {
+  where: Prisma.bookingsWhereUniqueInput
+  create: Prisma.XOR<Prisma.bookingsCreateWithoutBooking_status_historyInput, Prisma.bookingsUncheckedCreateWithoutBooking_status_historyInput>
+}
+
+export type bookingsUpsertWithoutBooking_status_historyInput = {
+  update: Prisma.XOR<Prisma.bookingsUpdateWithoutBooking_status_historyInput, Prisma.bookingsUncheckedUpdateWithoutBooking_status_historyInput>
+  create: Prisma.XOR<Prisma.bookingsCreateWithoutBooking_status_historyInput, Prisma.bookingsUncheckedCreateWithoutBooking_status_historyInput>
+  where?: Prisma.bookingsWhereInput
+}
+
+export type bookingsUpdateToOneWithWhereWithoutBooking_status_historyInput = {
+  where?: Prisma.bookingsWhereInput
+  data: Prisma.XOR<Prisma.bookingsUpdateWithoutBooking_status_historyInput, Prisma.bookingsUncheckedUpdateWithoutBooking_status_historyInput>
+}
+
+export type bookingsUpdateWithoutBooking_status_historyInput = {
+  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  carmodel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  branches?: Prisma.branchesUpdateOneWithoutBookingsNestedInput
+  services?: Prisma.servicesUpdateOneWithoutBookingsNestedInput
+  users?: Prisma.usersUpdateOneRequiredWithoutBookingsNestedInput
+  email_logs?: Prisma.email_logsUpdateManyWithoutBookingsNestedInput
+}
+
+export type bookingsUncheckedUpdateWithoutBooking_status_historyInput = {
+  booking_id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  service_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  branch_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  source?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  carmodel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  email_logs?: Prisma.email_logsUncheckedUpdateManyWithoutBookingsNestedInput
+}
+
 export type bookingsCreateManyBranchesInput = {
   booking_id?: number
   user_id: number
@@ -955,6 +1060,7 @@ export type bookingsUpdateWithoutBranchesInput = {
   carmodel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUpdateManyWithoutBookingsNestedInput
   services?: Prisma.servicesUpdateOneWithoutBookingsNestedInput
   users?: Prisma.usersUpdateOneRequiredWithoutBookingsNestedInput
   email_logs?: Prisma.email_logsUpdateManyWithoutBookingsNestedInput
@@ -971,6 +1077,7 @@ export type bookingsUncheckedUpdateWithoutBranchesInput = {
   carmodel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUncheckedUpdateManyWithoutBookingsNestedInput
   email_logs?: Prisma.email_logsUncheckedUpdateManyWithoutBookingsNestedInput
 }
 
@@ -1008,6 +1115,7 @@ export type bookingsUpdateWithoutServicesInput = {
   carmodel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUpdateManyWithoutBookingsNestedInput
   branches?: Prisma.branchesUpdateOneWithoutBookingsNestedInput
   users?: Prisma.usersUpdateOneRequiredWithoutBookingsNestedInput
   email_logs?: Prisma.email_logsUpdateManyWithoutBookingsNestedInput
@@ -1024,6 +1132,7 @@ export type bookingsUncheckedUpdateWithoutServicesInput = {
   carmodel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUncheckedUpdateManyWithoutBookingsNestedInput
   email_logs?: Prisma.email_logsUncheckedUpdateManyWithoutBookingsNestedInput
 }
 
@@ -1061,6 +1170,7 @@ export type bookingsUpdateWithoutUsersInput = {
   carmodel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUpdateManyWithoutBookingsNestedInput
   branches?: Prisma.branchesUpdateOneWithoutBookingsNestedInput
   services?: Prisma.servicesUpdateOneWithoutBookingsNestedInput
   email_logs?: Prisma.email_logsUpdateManyWithoutBookingsNestedInput
@@ -1077,6 +1187,7 @@ export type bookingsUncheckedUpdateWithoutUsersInput = {
   carmodel?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  booking_status_history?: Prisma.booking_status_historyUncheckedUpdateManyWithoutBookingsNestedInput
   email_logs?: Prisma.email_logsUncheckedUpdateManyWithoutBookingsNestedInput
 }
 
@@ -1099,10 +1210,12 @@ export type bookingsUncheckedUpdateManyWithoutUsersInput = {
  */
 
 export type BookingsCountOutputType = {
+  booking_status_history: number
   email_logs: number
 }
 
 export type BookingsCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  booking_status_history?: boolean | BookingsCountOutputTypeCountBooking_status_historyArgs
   email_logs?: boolean | BookingsCountOutputTypeCountEmail_logsArgs
 }
 
@@ -1114,6 +1227,13 @@ export type BookingsCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Ext
    * Select specific fields to fetch from the BookingsCountOutputType
    */
   select?: Prisma.BookingsCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * BookingsCountOutputType without action
+ */
+export type BookingsCountOutputTypeCountBooking_status_historyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.booking_status_historyWhereInput
 }
 
 /**
@@ -1136,6 +1256,7 @@ export type bookingsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   carmodel?: boolean
   created_at?: boolean
   updated_at?: boolean
+  booking_status_history?: boolean | Prisma.bookings$booking_status_historyArgs<ExtArgs>
   branches?: boolean | Prisma.bookings$branchesArgs<ExtArgs>
   services?: boolean | Prisma.bookings$servicesArgs<ExtArgs>
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
@@ -1193,6 +1314,7 @@ export type bookingsSelectScalar = {
 
 export type bookingsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"booking_id" | "user_id" | "service_id" | "branch_id" | "date" | "time" | "status" | "source" | "carmodel" | "created_at" | "updated_at", ExtArgs["result"]["bookings"]>
 export type bookingsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  booking_status_history?: boolean | Prisma.bookings$booking_status_historyArgs<ExtArgs>
   branches?: boolean | Prisma.bookings$branchesArgs<ExtArgs>
   services?: boolean | Prisma.bookings$servicesArgs<ExtArgs>
   users?: boolean | Prisma.usersDefaultArgs<ExtArgs>
@@ -1213,6 +1335,7 @@ export type bookingsIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
 export type $bookingsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "bookings"
   objects: {
+    booking_status_history: Prisma.$booking_status_historyPayload<ExtArgs>[]
     branches: Prisma.$branchesPayload<ExtArgs> | null
     services: Prisma.$servicesPayload<ExtArgs> | null
     users: Prisma.$usersPayload<ExtArgs>
@@ -1624,6 +1747,7 @@ readonly fields: bookingsFieldRefs;
  */
 export interface Prisma__bookingsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  booking_status_history<T extends Prisma.bookings$booking_status_historyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.bookings$booking_status_historyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$booking_status_historyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   branches<T extends Prisma.bookings$branchesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.bookings$branchesArgs<ExtArgs>>): Prisma.Prisma__branchesClient<runtime.Types.Result.GetResult<Prisma.$branchesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   services<T extends Prisma.bookings$servicesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.bookings$servicesArgs<ExtArgs>>): Prisma.Prisma__servicesClient<runtime.Types.Result.GetResult<Prisma.$servicesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   users<T extends Prisma.usersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.usersDefaultArgs<ExtArgs>>): Prisma.Prisma__usersClient<runtime.Types.Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
@@ -2061,6 +2185,30 @@ export type bookingsDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
    * Limit how many bookings to delete.
    */
   limit?: number
+}
+
+/**
+ * bookings.booking_status_history
+ */
+export type bookings$booking_status_historyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the booking_status_history
+   */
+  select?: Prisma.booking_status_historySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the booking_status_history
+   */
+  omit?: Prisma.booking_status_historyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.booking_status_historyInclude<ExtArgs> | null
+  where?: Prisma.booking_status_historyWhereInput
+  orderBy?: Prisma.booking_status_historyOrderByWithRelationInput | Prisma.booking_status_historyOrderByWithRelationInput[]
+  cursor?: Prisma.booking_status_historyWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.Booking_status_historyScalarFieldEnum | Prisma.Booking_status_historyScalarFieldEnum[]
 }
 
 /**

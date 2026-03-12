@@ -19,21 +19,22 @@ model Admin {
 }
 
 model bookings {
-  booking_id Int          @id @default(autoincrement())
-  user_id    Int
-  service_id Int?
-  branch_id  Int?
-  date       DateTime     @db.Date
-  time       DateTime     @db.Time(6)
-  status     String
-  source     String?
-  carmodel   String?
-  created_at DateTime?    @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
-  updated_at DateTime?    @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
-  branches   branches?    @relation(fields: [branch_id], references: [id], map: "fk_booking_branch")
-  services   services?    @relation(fields: [service_id], references: [id], map: "fk_booking_service")
-  users      users        @relation(fields: [user_id], references: [user_id], onDelete: Cascade, map: "fk_booking_user")
-  email_logs email_logs[]
+  booking_id             Int                      @id @default(autoincrement())
+  user_id                Int
+  service_id             Int?
+  branch_id              Int?
+  date                   DateTime                 @db.Date
+  time                   DateTime                 @db.Time(6)
+  status                 String
+  source                 String?
+  carmodel               String?
+  created_at             DateTime?                @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  updated_at             DateTime?                @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  booking_status_history booking_status_history[]
+  branches               branches?                @relation(fields: [branch_id], references: [id], map: "fk_booking_branch")
+  services               services?                @relation(fields: [service_id], references: [id], map: "fk_booking_service")
+  users                  users                    @relation(fields: [user_id], references: [user_id], onDelete: Cascade, map: "fk_booking_user")
+  email_logs             email_logs[]
 
   @@index([branch_id], map: "idx_booking_branch")
   @@index([date], map: "idx_booking_date")
@@ -119,19 +120,46 @@ model whatsapp_messages {
 }
 
 model campaign_leads {
-  id             Int       @id @default(autoincrement())
-  campaign_name  String?   @db.VarChar(100)
-  name           String    @db.VarChar(100)
-  phone_number   String    @db.VarChar(15)
-  car_type       String?   @db.VarChar(50)
-  car_brand      String?   @db.VarChar(100)
-  car_model      String?   @db.VarChar(100)
-  car_year       Int?
-  preferred_date DateTime? @db.Date
-  preferred_time DateTime? @db.Time(6)
-  user_intent    String?   @db.VarChar(50)
-  lead_status    String?   @db.VarChar(50)
+  id                           Int                            @id @default(autoincrement())
+  campaign_name                String?                        @db.VarChar(100)
+  name                         String                         @db.VarChar(100)
+  phone_number                 String                         @db.VarChar(15)
+  car_type                     String?                        @db.VarChar(50)
+  car_brand                    String?                        @db.VarChar(100)
+  car_model                    String?                        @db.VarChar(100)
+  car_year                     Int?
+  preferred_date               DateTime?                      @db.Date
+  preferred_time               DateTime?                      @db.Time(6)
+  user_intent                  String?                        @db.VarChar(50)
+  lead_status                  String?                        @db.VarChar(50)
+  notes                        String?
+  created_at                   DateTime?                      @default(dbgenerated("timezone('Asia/Kolkata'::text, now())")) @db.Timestamptz(6)
+  updated_at                   DateTime?                      @default(dbgenerated("timezone('Asia/Kolkata'::text, now())")) @db.Timestamptz(6)
+  campaign_lead_status_history campaign_lead_status_history[]
+}
+
+model booking_status_history {
+  id         Int       @id @default(autoincrement())
+  booking_id Int
+  old_status String?   @db.VarChar(50)
+  new_status String    @db.VarChar(50)
+  changed_by String?   @db.VarChar(100)
+  notes      String?
+  created_at DateTime? @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  bookings   bookings  @relation(fields: [booking_id], references: [booking_id], onDelete: Cascade, onUpdate: NoAction, map: "fk_booking_status_history")
+
+  @@index([booking_id], map: "idx_booking_status_history_booking_id")
+}
+
+model campaign_lead_status_history {
+  id             Int            @id @default(autoincrement())
+  lead_id        Int
+  old_status     String?        @db.VarChar(50)
+  new_status     String         @db.VarChar(50)
+  changed_by     String?        @db.VarChar(100)
   notes          String?
-  created_at     DateTime? @default(dbgenerated("timezone('Asia/Kolkata'::text, now())")) @db.Timestamptz(6)
-  updated_at     DateTime? @default(dbgenerated("timezone('Asia/Kolkata'::text, now())")) @db.Timestamptz(6)
+  created_at     DateTime?      @default(dbgenerated("timezone('Asia/Kolkata'::text, now())")) @db.Timestamptz(6)
+  campaign_leads campaign_leads @relation(fields: [lead_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_campaign_lead_status_history")
+
+  @@index([lead_id], map: "idx_campaign_lead_status_history_lead_id")
 }
