@@ -17,8 +17,8 @@
 
 import * as runtime from "@prisma/client/runtime/index-browser"
 
-export type * from '../models'
-export type * from './prismaNamespace'
+export type * from '../models.js'
+export type * from './prismaNamespace.js'
 
 export const Decimal = runtime.Decimal
 
@@ -110,7 +110,7 @@ export type BookingsScalarFieldEnum = (typeof BookingsScalarFieldEnum)[keyof typ
 
 export const BranchesScalarFieldEnum = {
   id: 'id',
-  name: 'name',
+  branch_name: 'branch_name',
   address: 'address',
   created_at: 'created_at',
   updated_at: 'updated_at'
@@ -159,7 +159,7 @@ export type Email_templatesScalarFieldEnum = (typeof Email_templatesScalarFieldE
 
 export const ServicesScalarFieldEnum = {
   id: 'id',
-  name: 'name',
+  service_name: 'service_name',
   url: 'url',
   created_at: 'created_at',
   updated_at: 'updated_at',
@@ -172,7 +172,7 @@ export type ServicesScalarFieldEnum = (typeof ServicesScalarFieldEnum)[keyof typ
 
 export const UsersScalarFieldEnum = {
   user_id: 'user_id',
-  name: 'name',
+  user_name: 'user_name',
   email: 'email',
   phone: 'phone',
   fromwhatsappnumber: 'fromwhatsappnumber',

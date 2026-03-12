@@ -4,7 +4,7 @@ export const getAllServicesService = async () => {
   return prisma.services.findMany({
     select: {
       id: true,
-      name: true,
+      service_name: true,
       url: true,
       images: true,
       description: true,
@@ -18,7 +18,7 @@ export const getAllServicesService = async () => {
 };
 
 export const createServiceService = async (data: {
-  name: string;
+  service_name: string;
   url?: string;
   images: string[];
   description?: string;
@@ -31,7 +31,7 @@ export const createServiceService = async (data: {
 export const updateServiceService = async (
   id: number,
   data: {
-    name?: string;
+    service_name?: string;
     url?: string;
     images?: string[];
     description?: string;
@@ -48,7 +48,7 @@ export const getServiceByIdService = async (id: number) => {
     where: { id },
     select: {
       id: true,
-      name: true,
+      service_name: true,
       url: true,
       images: true,
       description: true,

@@ -9,8 +9,8 @@
  * 🟢 You can import this file directly.
  */
 import type * as runtime from "@prisma/client/runtime/client"
-import type * as $Enums from "../enums"
-import type * as Prisma from "../internal/prismaNamespace"
+import type * as $Enums from "../enums.js"
+import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
  * Model users
@@ -38,7 +38,7 @@ export type UsersSumAggregateOutputType = {
 
 export type UsersMinAggregateOutputType = {
   user_id: number | null
-  name: string | null
+  user_name: string | null
   email: string | null
   phone: string | null
   fromwhatsappnumber: runtime.Decimal | null
@@ -48,7 +48,7 @@ export type UsersMinAggregateOutputType = {
 
 export type UsersMaxAggregateOutputType = {
   user_id: number | null
-  name: string | null
+  user_name: string | null
   email: string | null
   phone: string | null
   fromwhatsappnumber: runtime.Decimal | null
@@ -58,7 +58,7 @@ export type UsersMaxAggregateOutputType = {
 
 export type UsersCountAggregateOutputType = {
   user_id: number
-  name: number
+  user_name: number
   email: number
   phone: number
   fromwhatsappnumber: number
@@ -80,7 +80,7 @@ export type UsersSumAggregateInputType = {
 
 export type UsersMinAggregateInputType = {
   user_id?: true
-  name?: true
+  user_name?: true
   email?: true
   phone?: true
   fromwhatsappnumber?: true
@@ -90,7 +90,7 @@ export type UsersMinAggregateInputType = {
 
 export type UsersMaxAggregateInputType = {
   user_id?: true
-  name?: true
+  user_name?: true
   email?: true
   phone?: true
   fromwhatsappnumber?: true
@@ -100,7 +100,7 @@ export type UsersMaxAggregateInputType = {
 
 export type UsersCountAggregateInputType = {
   user_id?: true
-  name?: true
+  user_name?: true
   email?: true
   phone?: true
   fromwhatsappnumber?: true
@@ -197,8 +197,8 @@ export type usersGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 
 export type UsersGroupByOutputType = {
   user_id: number
-  name: string
-  email: string
+  user_name: string
+  email: string | null
   phone: string
   fromwhatsappnumber: runtime.Decimal | null
   created_at: Date | null
@@ -230,8 +230,8 @@ export type usersWhereInput = {
   OR?: Prisma.usersWhereInput[]
   NOT?: Prisma.usersWhereInput | Prisma.usersWhereInput[]
   user_id?: Prisma.IntFilter<"users"> | number
-  name?: Prisma.StringFilter<"users"> | string
-  email?: Prisma.StringFilter<"users"> | string
+  user_name?: Prisma.StringFilter<"users"> | string
+  email?: Prisma.StringNullableFilter<"users"> | string | null
   phone?: Prisma.StringFilter<"users"> | string
   fromwhatsappnumber?: Prisma.DecimalNullableFilter<"users"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
@@ -241,8 +241,8 @@ export type usersWhereInput = {
 
 export type usersOrderByWithRelationInput = {
   user_id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
-  email?: Prisma.SortOrder
+  user_name?: Prisma.SortOrder
+  email?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrder
   fromwhatsappnumber?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -255,8 +255,8 @@ export type usersWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.usersWhereInput | Prisma.usersWhereInput[]
   OR?: Prisma.usersWhereInput[]
   NOT?: Prisma.usersWhereInput | Prisma.usersWhereInput[]
-  name?: Prisma.StringFilter<"users"> | string
-  email?: Prisma.StringFilter<"users"> | string
+  user_name?: Prisma.StringFilter<"users"> | string
+  email?: Prisma.StringNullableFilter<"users"> | string | null
   phone?: Prisma.StringFilter<"users"> | string
   fromwhatsappnumber?: Prisma.DecimalNullableFilter<"users"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Prisma.DateTimeNullableFilter<"users"> | Date | string | null
@@ -266,8 +266,8 @@ export type usersWhereUniqueInput = Prisma.AtLeast<{
 
 export type usersOrderByWithAggregationInput = {
   user_id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
-  email?: Prisma.SortOrder
+  user_name?: Prisma.SortOrder
+  email?: Prisma.SortOrderInput | Prisma.SortOrder
   phone?: Prisma.SortOrder
   fromwhatsappnumber?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -284,8 +284,8 @@ export type usersScalarWhereWithAggregatesInput = {
   OR?: Prisma.usersScalarWhereWithAggregatesInput[]
   NOT?: Prisma.usersScalarWhereWithAggregatesInput | Prisma.usersScalarWhereWithAggregatesInput[]
   user_id?: Prisma.IntWithAggregatesFilter<"users"> | number
-  name?: Prisma.StringWithAggregatesFilter<"users"> | string
-  email?: Prisma.StringWithAggregatesFilter<"users"> | string
+  user_name?: Prisma.StringWithAggregatesFilter<"users"> | string
+  email?: Prisma.StringNullableWithAggregatesFilter<"users"> | string | null
   phone?: Prisma.StringWithAggregatesFilter<"users"> | string
   fromwhatsappnumber?: Prisma.DecimalNullableWithAggregatesFilter<"users"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"users"> | Date | string | null
@@ -293,8 +293,8 @@ export type usersScalarWhereWithAggregatesInput = {
 }
 
 export type usersCreateInput = {
-  name: string
-  email: string
+  user_name: string
+  email?: string | null
   phone: string
   fromwhatsappnumber?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Date | string | null
@@ -304,8 +304,8 @@ export type usersCreateInput = {
 
 export type usersUncheckedCreateInput = {
   user_id?: number
-  name: string
-  email: string
+  user_name: string
+  email?: string | null
   phone: string
   fromwhatsappnumber?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Date | string | null
@@ -314,8 +314,8 @@ export type usersUncheckedCreateInput = {
 }
 
 export type usersUpdateInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
+  user_name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   fromwhatsappnumber?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -325,8 +325,8 @@ export type usersUpdateInput = {
 
 export type usersUncheckedUpdateInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
+  user_name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   fromwhatsappnumber?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -336,8 +336,8 @@ export type usersUncheckedUpdateInput = {
 
 export type usersCreateManyInput = {
   user_id?: number
-  name: string
-  email: string
+  user_name: string
+  email?: string | null
   phone: string
   fromwhatsappnumber?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Date | string | null
@@ -345,8 +345,8 @@ export type usersCreateManyInput = {
 }
 
 export type usersUpdateManyMutationInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
+  user_name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   fromwhatsappnumber?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -355,8 +355,8 @@ export type usersUpdateManyMutationInput = {
 
 export type usersUncheckedUpdateManyInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
+  user_name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   fromwhatsappnumber?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -370,7 +370,7 @@ export type UsersScalarRelationFilter = {
 
 export type usersCountOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  user_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   fromwhatsappnumber?: Prisma.SortOrder
@@ -385,7 +385,7 @@ export type usersAvgOrderByAggregateInput = {
 
 export type usersMaxOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  user_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   fromwhatsappnumber?: Prisma.SortOrder
@@ -395,7 +395,7 @@ export type usersMaxOrderByAggregateInput = {
 
 export type usersMinOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  user_name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   phone?: Prisma.SortOrder
   fromwhatsappnumber?: Prisma.SortOrder
@@ -431,8 +431,8 @@ export type NullableDecimalFieldUpdateOperationsInput = {
 }
 
 export type usersCreateWithoutBookingsInput = {
-  name: string
-  email: string
+  user_name: string
+  email?: string | null
   phone: string
   fromwhatsappnumber?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Date | string | null
@@ -441,8 +441,8 @@ export type usersCreateWithoutBookingsInput = {
 
 export type usersUncheckedCreateWithoutBookingsInput = {
   user_id?: number
-  name: string
-  email: string
+  user_name: string
+  email?: string | null
   phone: string
   fromwhatsappnumber?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Date | string | null
@@ -466,8 +466,8 @@ export type usersUpdateToOneWithWhereWithoutBookingsInput = {
 }
 
 export type usersUpdateWithoutBookingsInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
+  user_name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   fromwhatsappnumber?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -476,8 +476,8 @@ export type usersUpdateWithoutBookingsInput = {
 
 export type usersUncheckedUpdateWithoutBookingsInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
+  user_name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   fromwhatsappnumber?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -517,7 +517,7 @@ export type UsersCountOutputTypeCountBookingsArgs<ExtArgs extends runtime.Types.
 
 export type usersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   user_id?: boolean
-  name?: boolean
+  user_name?: boolean
   email?: boolean
   phone?: boolean
   fromwhatsappnumber?: boolean
@@ -529,7 +529,7 @@ export type usersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 
 export type usersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   user_id?: boolean
-  name?: boolean
+  user_name?: boolean
   email?: boolean
   phone?: boolean
   fromwhatsappnumber?: boolean
@@ -539,7 +539,7 @@ export type usersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 
 export type usersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   user_id?: boolean
-  name?: boolean
+  user_name?: boolean
   email?: boolean
   phone?: boolean
   fromwhatsappnumber?: boolean
@@ -549,7 +549,7 @@ export type usersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 
 export type usersSelectScalar = {
   user_id?: boolean
-  name?: boolean
+  user_name?: boolean
   email?: boolean
   phone?: boolean
   fromwhatsappnumber?: boolean
@@ -557,7 +557,7 @@ export type usersSelectScalar = {
   updated_at?: boolean
 }
 
-export type usersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "name" | "email" | "phone" | "fromwhatsappnumber" | "created_at" | "updated_at", ExtArgs["result"]["users"]>
+export type usersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"user_id" | "user_name" | "email" | "phone" | "fromwhatsappnumber" | "created_at" | "updated_at", ExtArgs["result"]["users"]>
 export type usersInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   bookings?: boolean | Prisma.users$bookingsArgs<ExtArgs>
   _count?: boolean | Prisma.UsersCountOutputTypeDefaultArgs<ExtArgs>
@@ -572,8 +572,8 @@ export type $usersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     user_id: number
-    name: string
-    email: string
+    user_name: string
+    email: string | null
     phone: string
     fromwhatsappnumber: runtime.Decimal | null
     created_at: Date | null
@@ -1003,7 +1003,7 @@ export interface Prisma__usersClient<T, Null = never, ExtArgs extends runtime.Ty
  */
 export interface usersFieldRefs {
   readonly user_id: Prisma.FieldRef<"users", 'Int'>
-  readonly name: Prisma.FieldRef<"users", 'String'>
+  readonly user_name: Prisma.FieldRef<"users", 'String'>
   readonly email: Prisma.FieldRef<"users", 'String'>
   readonly phone: Prisma.FieldRef<"users", 'String'>
   readonly fromwhatsappnumber: Prisma.FieldRef<"users", 'Decimal'>

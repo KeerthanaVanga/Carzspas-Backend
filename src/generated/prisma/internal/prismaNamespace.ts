@@ -16,10 +16,10 @@
  */
 
 import * as runtime from "@prisma/client/runtime/client"
-import type * as Prisma from "../models"
-import { type PrismaClient } from "./class"
+import type * as Prisma from "../models.js"
+import { type PrismaClient } from "./class.js"
 
-export type * from '../models'
+export type * from '../models.js'
 
 export type DMMF = typeof runtime.DMMF
 
@@ -1223,7 +1223,7 @@ export type BookingsScalarFieldEnum = (typeof BookingsScalarFieldEnum)[keyof typ
 
 export const BranchesScalarFieldEnum = {
   id: 'id',
-  name: 'name',
+  branch_name: 'branch_name',
   address: 'address',
   created_at: 'created_at',
   updated_at: 'updated_at'
@@ -1272,7 +1272,7 @@ export type Email_templatesScalarFieldEnum = (typeof Email_templatesScalarFieldE
 
 export const ServicesScalarFieldEnum = {
   id: 'id',
-  name: 'name',
+  service_name: 'service_name',
   url: 'url',
   created_at: 'created_at',
   updated_at: 'updated_at',
@@ -1285,7 +1285,7 @@ export type ServicesScalarFieldEnum = (typeof ServicesScalarFieldEnum)[keyof typ
 
 export const UsersScalarFieldEnum = {
   user_id: 'user_id',
-  name: 'name',
+  user_name: 'user_name',
   email: 'email',
   phone: 'phone',
   fromwhatsappnumber: 'fromwhatsappnumber',

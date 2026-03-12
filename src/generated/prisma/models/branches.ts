@@ -9,8 +9,8 @@
  * 🟢 You can import this file directly.
  */
 import type * as runtime from "@prisma/client/runtime/client"
-import type * as $Enums from "../enums"
-import type * as Prisma from "../internal/prismaNamespace"
+import type * as $Enums from "../enums.js"
+import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
  * Model branches
@@ -36,7 +36,7 @@ export type BranchesSumAggregateOutputType = {
 
 export type BranchesMinAggregateOutputType = {
   id: number | null
-  name: string | null
+  branch_name: string | null
   address: string | null
   created_at: Date | null
   updated_at: Date | null
@@ -44,7 +44,7 @@ export type BranchesMinAggregateOutputType = {
 
 export type BranchesMaxAggregateOutputType = {
   id: number | null
-  name: string | null
+  branch_name: string | null
   address: string | null
   created_at: Date | null
   updated_at: Date | null
@@ -52,7 +52,7 @@ export type BranchesMaxAggregateOutputType = {
 
 export type BranchesCountAggregateOutputType = {
   id: number
-  name: number
+  branch_name: number
   address: number
   created_at: number
   updated_at: number
@@ -70,7 +70,7 @@ export type BranchesSumAggregateInputType = {
 
 export type BranchesMinAggregateInputType = {
   id?: true
-  name?: true
+  branch_name?: true
   address?: true
   created_at?: true
   updated_at?: true
@@ -78,7 +78,7 @@ export type BranchesMinAggregateInputType = {
 
 export type BranchesMaxAggregateInputType = {
   id?: true
-  name?: true
+  branch_name?: true
   address?: true
   created_at?: true
   updated_at?: true
@@ -86,7 +86,7 @@ export type BranchesMaxAggregateInputType = {
 
 export type BranchesCountAggregateInputType = {
   id?: true
-  name?: true
+  branch_name?: true
   address?: true
   created_at?: true
   updated_at?: true
@@ -181,7 +181,7 @@ export type branchesGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 
 export type BranchesGroupByOutputType = {
   id: number
-  name: string
+  branch_name: string
   address: string | null
   created_at: Date | null
   updated_at: Date | null
@@ -212,7 +212,7 @@ export type branchesWhereInput = {
   OR?: Prisma.branchesWhereInput[]
   NOT?: Prisma.branchesWhereInput | Prisma.branchesWhereInput[]
   id?: Prisma.IntFilter<"branches"> | number
-  name?: Prisma.StringFilter<"branches"> | string
+  branch_name?: Prisma.StringFilter<"branches"> | string
   address?: Prisma.StringNullableFilter<"branches"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"branches"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"branches"> | Date | string | null
@@ -221,7 +221,7 @@ export type branchesWhereInput = {
 
 export type branchesOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  branch_name?: Prisma.SortOrder
   address?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -233,7 +233,7 @@ export type branchesWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.branchesWhereInput | Prisma.branchesWhereInput[]
   OR?: Prisma.branchesWhereInput[]
   NOT?: Prisma.branchesWhereInput | Prisma.branchesWhereInput[]
-  name?: Prisma.StringFilter<"branches"> | string
+  branch_name?: Prisma.StringFilter<"branches"> | string
   address?: Prisma.StringNullableFilter<"branches"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"branches"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"branches"> | Date | string | null
@@ -242,7 +242,7 @@ export type branchesWhereUniqueInput = Prisma.AtLeast<{
 
 export type branchesOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  branch_name?: Prisma.SortOrder
   address?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -258,14 +258,14 @@ export type branchesScalarWhereWithAggregatesInput = {
   OR?: Prisma.branchesScalarWhereWithAggregatesInput[]
   NOT?: Prisma.branchesScalarWhereWithAggregatesInput | Prisma.branchesScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"branches"> | number
-  name?: Prisma.StringWithAggregatesFilter<"branches"> | string
+  branch_name?: Prisma.StringWithAggregatesFilter<"branches"> | string
   address?: Prisma.StringNullableWithAggregatesFilter<"branches"> | string | null
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"branches"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"branches"> | Date | string | null
 }
 
 export type branchesCreateInput = {
-  name: string
+  branch_name: string
   address?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
@@ -274,7 +274,7 @@ export type branchesCreateInput = {
 
 export type branchesUncheckedCreateInput = {
   id?: number
-  name: string
+  branch_name: string
   address?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
@@ -282,7 +282,7 @@ export type branchesUncheckedCreateInput = {
 }
 
 export type branchesUpdateInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  branch_name?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -291,7 +291,7 @@ export type branchesUpdateInput = {
 
 export type branchesUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  branch_name?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -300,14 +300,14 @@ export type branchesUncheckedUpdateInput = {
 
 export type branchesCreateManyInput = {
   id?: number
-  name: string
+  branch_name: string
   address?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
 }
 
 export type branchesUpdateManyMutationInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  branch_name?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -315,7 +315,7 @@ export type branchesUpdateManyMutationInput = {
 
 export type branchesUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  branch_name?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -328,7 +328,7 @@ export type BranchesNullableScalarRelationFilter = {
 
 export type branchesCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  branch_name?: Prisma.SortOrder
   address?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -340,7 +340,7 @@ export type branchesAvgOrderByAggregateInput = {
 
 export type branchesMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  branch_name?: Prisma.SortOrder
   address?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -348,7 +348,7 @@ export type branchesMaxOrderByAggregateInput = {
 
 export type branchesMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  branch_name?: Prisma.SortOrder
   address?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -375,7 +375,7 @@ export type branchesUpdateOneWithoutBookingsNestedInput = {
 }
 
 export type branchesCreateWithoutBookingsInput = {
-  name: string
+  branch_name: string
   address?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
@@ -383,7 +383,7 @@ export type branchesCreateWithoutBookingsInput = {
 
 export type branchesUncheckedCreateWithoutBookingsInput = {
   id?: number
-  name: string
+  branch_name: string
   address?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
@@ -406,7 +406,7 @@ export type branchesUpdateToOneWithWhereWithoutBookingsInput = {
 }
 
 export type branchesUpdateWithoutBookingsInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  branch_name?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -414,7 +414,7 @@ export type branchesUpdateWithoutBookingsInput = {
 
 export type branchesUncheckedUpdateWithoutBookingsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  branch_name?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -453,7 +453,7 @@ export type BranchesCountOutputTypeCountBookingsArgs<ExtArgs extends runtime.Typ
 
 export type branchesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  name?: boolean
+  branch_name?: boolean
   address?: boolean
   created_at?: boolean
   updated_at?: boolean
@@ -463,7 +463,7 @@ export type branchesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
 
 export type branchesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  name?: boolean
+  branch_name?: boolean
   address?: boolean
   created_at?: boolean
   updated_at?: boolean
@@ -471,7 +471,7 @@ export type branchesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
 
 export type branchesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  name?: boolean
+  branch_name?: boolean
   address?: boolean
   created_at?: boolean
   updated_at?: boolean
@@ -479,13 +479,13 @@ export type branchesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
 
 export type branchesSelectScalar = {
   id?: boolean
-  name?: boolean
+  branch_name?: boolean
   address?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type branchesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "address" | "created_at" | "updated_at", ExtArgs["result"]["branches"]>
+export type branchesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "branch_name" | "address" | "created_at" | "updated_at", ExtArgs["result"]["branches"]>
 export type branchesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   bookings?: boolean | Prisma.branches$bookingsArgs<ExtArgs>
   _count?: boolean | Prisma.BranchesCountOutputTypeDefaultArgs<ExtArgs>
@@ -500,7 +500,7 @@ export type $branchesPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    name: string
+    branch_name: string
     address: string | null
     created_at: Date | null
     updated_at: Date | null
@@ -929,7 +929,7 @@ export interface Prisma__branchesClient<T, Null = never, ExtArgs extends runtime
  */
 export interface branchesFieldRefs {
   readonly id: Prisma.FieldRef<"branches", 'Int'>
-  readonly name: Prisma.FieldRef<"branches", 'String'>
+  readonly branch_name: Prisma.FieldRef<"branches", 'String'>
   readonly address: Prisma.FieldRef<"branches", 'String'>
   readonly created_at: Prisma.FieldRef<"branches", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"branches", 'DateTime'>

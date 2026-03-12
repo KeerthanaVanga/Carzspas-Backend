@@ -9,8 +9,8 @@
  * 🟢 You can import this file directly.
  */
 import type * as runtime from "@prisma/client/runtime/client"
-import type * as $Enums from "../enums"
-import type * as Prisma from "../internal/prismaNamespace"
+import type * as $Enums from "../enums.js"
+import type * as Prisma from "../internal/prismaNamespace.js"
 
 /**
  * Model services
@@ -36,7 +36,7 @@ export type ServicesSumAggregateOutputType = {
 
 export type ServicesMinAggregateOutputType = {
   id: number | null
-  name: string | null
+  service_name: string | null
   url: string | null
   created_at: Date | null
   updated_at: Date | null
@@ -45,7 +45,7 @@ export type ServicesMinAggregateOutputType = {
 
 export type ServicesMaxAggregateOutputType = {
   id: number | null
-  name: string | null
+  service_name: string | null
   url: string | null
   created_at: Date | null
   updated_at: Date | null
@@ -54,7 +54,7 @@ export type ServicesMaxAggregateOutputType = {
 
 export type ServicesCountAggregateOutputType = {
   id: number
-  name: number
+  service_name: number
   url: number
   created_at: number
   updated_at: number
@@ -74,7 +74,7 @@ export type ServicesSumAggregateInputType = {
 
 export type ServicesMinAggregateInputType = {
   id?: true
-  name?: true
+  service_name?: true
   url?: true
   created_at?: true
   updated_at?: true
@@ -83,7 +83,7 @@ export type ServicesMinAggregateInputType = {
 
 export type ServicesMaxAggregateInputType = {
   id?: true
-  name?: true
+  service_name?: true
   url?: true
   created_at?: true
   updated_at?: true
@@ -92,7 +92,7 @@ export type ServicesMaxAggregateInputType = {
 
 export type ServicesCountAggregateInputType = {
   id?: true
-  name?: true
+  service_name?: true
   url?: true
   created_at?: true
   updated_at?: true
@@ -189,7 +189,7 @@ export type servicesGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 
 export type ServicesGroupByOutputType = {
   id: number
-  name: string
+  service_name: string
   url: string | null
   created_at: Date | null
   updated_at: Date | null
@@ -222,7 +222,7 @@ export type servicesWhereInput = {
   OR?: Prisma.servicesWhereInput[]
   NOT?: Prisma.servicesWhereInput | Prisma.servicesWhereInput[]
   id?: Prisma.IntFilter<"services"> | number
-  name?: Prisma.StringFilter<"services"> | string
+  service_name?: Prisma.StringFilter<"services"> | string
   url?: Prisma.StringNullableFilter<"services"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"services"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"services"> | Date | string | null
@@ -233,7 +233,7 @@ export type servicesWhereInput = {
 
 export type servicesOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  service_name?: Prisma.SortOrder
   url?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -247,7 +247,7 @@ export type servicesWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.servicesWhereInput | Prisma.servicesWhereInput[]
   OR?: Prisma.servicesWhereInput[]
   NOT?: Prisma.servicesWhereInput | Prisma.servicesWhereInput[]
-  name?: Prisma.StringFilter<"services"> | string
+  service_name?: Prisma.StringFilter<"services"> | string
   url?: Prisma.StringNullableFilter<"services"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"services"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableFilter<"services"> | Date | string | null
@@ -258,7 +258,7 @@ export type servicesWhereUniqueInput = Prisma.AtLeast<{
 
 export type servicesOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  service_name?: Prisma.SortOrder
   url?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   updated_at?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -276,7 +276,7 @@ export type servicesScalarWhereWithAggregatesInput = {
   OR?: Prisma.servicesScalarWhereWithAggregatesInput[]
   NOT?: Prisma.servicesScalarWhereWithAggregatesInput | Prisma.servicesScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"services"> | number
-  name?: Prisma.StringWithAggregatesFilter<"services"> | string
+  service_name?: Prisma.StringWithAggregatesFilter<"services"> | string
   url?: Prisma.StringNullableWithAggregatesFilter<"services"> | string | null
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"services"> | Date | string | null
   updated_at?: Prisma.DateTimeNullableWithAggregatesFilter<"services"> | Date | string | null
@@ -285,7 +285,7 @@ export type servicesScalarWhereWithAggregatesInput = {
 }
 
 export type servicesCreateInput = {
-  name: string
+  service_name: string
   url?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
@@ -296,7 +296,7 @@ export type servicesCreateInput = {
 
 export type servicesUncheckedCreateInput = {
   id?: number
-  name: string
+  service_name: string
   url?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
@@ -306,7 +306,7 @@ export type servicesUncheckedCreateInput = {
 }
 
 export type servicesUpdateInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  service_name?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -317,7 +317,7 @@ export type servicesUpdateInput = {
 
 export type servicesUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  service_name?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -328,7 +328,7 @@ export type servicesUncheckedUpdateInput = {
 
 export type servicesCreateManyInput = {
   id?: number
-  name: string
+  service_name: string
   url?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
@@ -337,7 +337,7 @@ export type servicesCreateManyInput = {
 }
 
 export type servicesUpdateManyMutationInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  service_name?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -347,7 +347,7 @@ export type servicesUpdateManyMutationInput = {
 
 export type servicesUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  service_name?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -370,7 +370,7 @@ export type StringNullableListFilter<$PrismaModel = never> = {
 
 export type servicesCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  service_name?: Prisma.SortOrder
   url?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -384,7 +384,7 @@ export type servicesAvgOrderByAggregateInput = {
 
 export type servicesMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  service_name?: Prisma.SortOrder
   url?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -393,7 +393,7 @@ export type servicesMaxOrderByAggregateInput = {
 
 export type servicesMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  name?: Prisma.SortOrder
+  service_name?: Prisma.SortOrder
   url?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
@@ -430,7 +430,7 @@ export type servicesUpdateimagesInput = {
 }
 
 export type servicesCreateWithoutBookingsInput = {
-  name: string
+  service_name: string
   url?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
@@ -440,7 +440,7 @@ export type servicesCreateWithoutBookingsInput = {
 
 export type servicesUncheckedCreateWithoutBookingsInput = {
   id?: number
-  name: string
+  service_name: string
   url?: string | null
   created_at?: Date | string | null
   updated_at?: Date | string | null
@@ -465,7 +465,7 @@ export type servicesUpdateToOneWithWhereWithoutBookingsInput = {
 }
 
 export type servicesUpdateWithoutBookingsInput = {
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  service_name?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -475,7 +475,7 @@ export type servicesUpdateWithoutBookingsInput = {
 
 export type servicesUncheckedUpdateWithoutBookingsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  name?: Prisma.StringFieldUpdateOperationsInput | string
+  service_name?: Prisma.StringFieldUpdateOperationsInput | string
   url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   updated_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -516,7 +516,7 @@ export type ServicesCountOutputTypeCountBookingsArgs<ExtArgs extends runtime.Typ
 
 export type servicesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  name?: boolean
+  service_name?: boolean
   url?: boolean
   created_at?: boolean
   updated_at?: boolean
@@ -528,7 +528,7 @@ export type servicesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
 
 export type servicesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  name?: boolean
+  service_name?: boolean
   url?: boolean
   created_at?: boolean
   updated_at?: boolean
@@ -538,7 +538,7 @@ export type servicesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
 
 export type servicesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  name?: boolean
+  service_name?: boolean
   url?: boolean
   created_at?: boolean
   updated_at?: boolean
@@ -548,7 +548,7 @@ export type servicesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
 
 export type servicesSelectScalar = {
   id?: boolean
-  name?: boolean
+  service_name?: boolean
   url?: boolean
   created_at?: boolean
   updated_at?: boolean
@@ -556,7 +556,7 @@ export type servicesSelectScalar = {
   description?: boolean
 }
 
-export type servicesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "url" | "created_at" | "updated_at" | "images" | "description", ExtArgs["result"]["services"]>
+export type servicesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "service_name" | "url" | "created_at" | "updated_at" | "images" | "description", ExtArgs["result"]["services"]>
 export type servicesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   bookings?: boolean | Prisma.services$bookingsArgs<ExtArgs>
   _count?: boolean | Prisma.ServicesCountOutputTypeDefaultArgs<ExtArgs>
@@ -571,7 +571,7 @@ export type $servicesPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    name: string
+    service_name: string
     url: string | null
     created_at: Date | null
     updated_at: Date | null
@@ -1002,7 +1002,7 @@ export interface Prisma__servicesClient<T, Null = never, ExtArgs extends runtime
  */
 export interface servicesFieldRefs {
   readonly id: Prisma.FieldRef<"services", 'Int'>
-  readonly name: Prisma.FieldRef<"services", 'String'>
+  readonly service_name: Prisma.FieldRef<"services", 'String'>
   readonly url: Prisma.FieldRef<"services", 'String'>
   readonly created_at: Prisma.FieldRef<"services", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"services", 'DateTime'>

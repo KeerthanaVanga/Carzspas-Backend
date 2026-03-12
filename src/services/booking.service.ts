@@ -37,7 +37,7 @@ export const getAllBookingsService = async ({
     where.OR = [
       {
         users: {
-          name: {
+          user_name: {
             contains: search,
             mode: "insensitive",
           },

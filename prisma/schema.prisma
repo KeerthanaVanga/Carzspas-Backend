@@ -42,12 +42,12 @@ model bookings {
 }
 
 model branches {
-  id         Int        @id @default(autoincrement())
-  name       String
-  address    String?
-  created_at DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
-  updated_at DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
-  bookings   bookings[]
+  id          Int        @id @default(autoincrement())
+  branch_name String
+  address     String?
+  created_at  DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  updated_at  DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  bookings    bookings[]
 }
 
 model carzspas_pages {
@@ -81,20 +81,20 @@ model email_templates {
 }
 
 model services {
-  id          Int        @id @default(autoincrement())
-  name        String
-  url         String?
-  created_at  DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
-  updated_at  DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
-  images      String[]
-  description String?
-  bookings    bookings[]
+  id           Int        @id @default(autoincrement())
+  service_name String
+  url          String?
+  created_at   DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  updated_at   DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
+  images       String[]
+  description  String?
+  bookings     bookings[]
 }
 
 model users {
   user_id            Int        @id @default(autoincrement())
-  name               String
-  email              String
+  user_name          String
+  email              String?
   phone              String
   fromwhatsappnumber Decimal?   @db.Decimal
   created_at         DateTime?  @default(dbgenerated("(now() AT TIME ZONE 'Asia/Kolkata'::text)")) @db.Timestamp(6)
