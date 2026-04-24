@@ -62,6 +62,15 @@ app.use(cookieParser());
    🚀 Routes
 ========================= */
 
+// Health check / API running check
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "CARZSPAS API is running successfully!",
+  });
+});
+
+
 app.use("/api/auth", authRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/campaign-leads", campaignLeadRouter);
